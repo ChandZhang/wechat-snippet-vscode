@@ -1,0 +1,42 @@
+{
+	"name": "wechat-snippet",
+	"displayName": "wechat snippet",
+	"description": "微信小程序代码辅助,自动完成",
+	"version": "0.1.0",
+	"publisher": "ChandZhang",
+	"engines": {
+		"vscode": "^1.20.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"keywords": [
+		"wx",
+		"wechat",
+		"wxapi",
+		"miniapp",
+		"小程序"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/snippets.json"
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Chand-zhang/wechat-snippet-vscode"
+	},
+	"bugs": {
+		"email": "zhangcd@iiwol.com"
+	},
+	"icon": "assets/image/logo.png",
+	"license": "MIT License",
+	"__metadata": {
+		"id": "",
+		"publisherId": "",
+		"publisherDisplayName": "ChandZhang"
+	}
+}
