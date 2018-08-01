@@ -13,4 +13,7 @@ A wechat snippet plugin for vscode.
 
 
 	
-	如果有问题,请联系 zhangcd@iiowl.com
+
+	
+	
+如果有问题,请联系 zhangcd@iiowl.com
