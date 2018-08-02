@@ -1,7 +1,7 @@
 {
 	"name": "wechat-snippet",
 	"description": "微信小程序代码辅助,自动完成",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"publisher": "ChandZhang",
 	"engines": {
 		"vscode": "^1.20.0"
@@ -32,6 +32,10 @@
 		],
 		"snippets": [{
 				"language": "javascript",
+				"path": "./snippets/wxjs.json"
+			},
+			{
+				"language": "typescript",
 				"path": "./snippets/wxjs.json"
 			},
 			{

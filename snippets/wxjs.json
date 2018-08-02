@@ -6,7 +6,8 @@
             "App({",
             "\t//onLaunch,onShow: options(path,query,scene,shareTicket,referrerInfo(appId,extraData))",
             "\tonLaunch: (options)=> {",
-            "\r\n\t},",
+            "\t\t${1}",
+            "\t},",
             "\tonShow: (options)=> {",
             "\r\n\t},",
             "\tonHide: ()=>{",
@@ -17,7 +18,8 @@
             "\tonPageNotFound: (options)=> {",
             "\r\n\t},",
             "\tglobalData: {",
-            "\r\n\t}",
+            "\t\t${2}",
+            "\t}",
             "});"
         ],
         "description": "App对象及其生命周期函数和回调函数"
@@ -28,12 +30,15 @@
             "//Page Object",
             "Page({",
             "\tdata: {",
-            "\r\n\t},",
+            "\t\t${1}",
+            "\t},",
             "\t//options(Object)",
             "\tonLoad: (options)=> {",
-            "\r\n\t},",
+            "\t\t${2}",
+            "\t},",
             "\tonReady: ()=>{",
-            "\r\n\t},",
+            "\t\t${3}",
+            "\t},",
             "\tonShow: ()=>{",
             "\r\n\t},",
             "\tonHide: ()=>{",
@@ -61,9 +66,9 @@
             "//Component Object",
             "Component({",
             "\tproperties: {",
-            "\t\t${1}:{",
-            "\t\t\ttype:${2},",
-            "\t\t\tvalue:${3},",
+            "\t\t${1:myProperty}:{",
+            "\t\t\ttype:${2:String},",
+            "\t\t\tvalue:${3:''},",
             "\t\t\tobserver: ()=>{${4}}",
             "\t\t},",
             "\r\n\t},",
@@ -95,7 +100,7 @@
             "\tmethod: '${4:GET}',",
             "\tdataType: '${5:json}',",
             "\tresponseType: '${6:text}',",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{${7}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -110,7 +115,7 @@
             "\tfilePath: ${2},",
             "\tname: ${3},",
             "\tformData: {${4}},",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{${5}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -122,7 +127,7 @@
         "body": [
             "wx.downloadFile({",
             "\turl: '${1}',",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{${2}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -137,7 +142,7 @@
             "\theader: {${3:'content-type':'application/json'}},",
             "\tmethod: '${4:GET}',",
             "\tprotocols: [${5}],",
-            "\tsuccess: ()=>{},",
+            "\tsuccess: ()=>{${6}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -159,7 +164,7 @@
         "body": [
             "wx.sendSocketMessage({",
             "\tdata: ${1},",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{${2}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -177,7 +182,7 @@
             "wx.closeSocket({",
             "\tcode: ${1:1000},",
             "\treason: '${2}',",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{${3}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -194,7 +199,7 @@
         "body": [
             "sockTask.send({",
             "\tdata: ${1},",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{${2}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -207,7 +212,7 @@
             "sockTask.close({",
             "\tcode: ${1},",
             "\treason: ${2},",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{${3}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -241,7 +246,7 @@
             "\tcount: ${1:9},",
             "\tsizeType: ${2:['original','compressed']},",
             "\tsourceType: ${3:['album','camera']},",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{${4}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -254,7 +259,7 @@
             "wx.previewImage({",
             "\tcurrent: '${1}',",
             "\turls: [${2}],",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{${3}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
