@@ -3011,7 +3011,7 @@
     "cvsCtx.setTransform": {
         "prefix": "cvsCtx-setTransform",
         "body": [
-            "cvsCtx.setTransform(${scaleX}, ${skewX}, ${skewY}, ${scaleY}, ${translateX}, ${translateY});"
+            "cvsCtx.setTransform(${1:scaleX}, ${2:skewX}, ${3:skewY}, ${4:scaleY}, ${5:translateX}, ${6:translateY});"
         ],
         "description": "使用矩阵重新设置（覆盖）当前变换的方法"
     }
