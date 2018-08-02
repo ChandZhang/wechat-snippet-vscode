@@ -1,0 +1,81 @@
+{
+    "page-json": {
+        "prefix": "page",
+        "body": [
+            "{",
+            "\t\"navigationBarBackgroundColor\": \"#000000\",",
+            "\t\"navigationBarTextStyle\": \"white\",",
+            "\t\"navigationBarTitleText\": \"\",",
+            "\t\"backgroundColor\": \"#ffffff\",",
+            "\t\"backgroundTextStyle\": \"dark|light\",",
+            "\t\"enablePullDownRefresh\": false,",
+            "\t\"disableScroll\": false,",
+            "\t\"onReachBottomDistance\": false",
+            "}"
+        ]
+    },
+	
+	"app-pages": {
+        "prefix": "pages",
+        "body": [
+            "\"pages\": [",
+            "\t\"pages/index/index\"",
+            "],"
+        ]
+    },
+    "app-window": {
+        "prefix": "window",
+        "body": [
+            "\"window\": {",
+            "\t\"navigationBarBackgroundColor\": \"#000000\",",
+            "\t\"navigationBarTextStyle\": \"white\",",
+            "\t\"navigationBarTitleText\": \"\",",
+            "\t\"navigationStyle\": \"default|custom\",",
+            "\t\"backgroundColor\": \"#ffffff\",",
+            "\t\"backgroundTextStyle\": \"dark|light\",",
+            "\t\"backgroundColorTop\": \"#ffffff\",",
+            "\t\"backgroundColorBottom\": \"#ffffff\",",
+            "\t\"enablePullDownRefresh\": false,",
+            "\t\"onReachBottomDistance\": 50",
+            "},"
+        ]
+    },
+    
+    "app-tabbar": {
+        "prefix": "tabbar",
+        "body": [
+            "\"tabBar\": {",
+            "\t\"color\": \"\",",
+            "\t\"selectedColor\": \"\",",
+            "\t\"backgroundColor\": \"\",",
+            "\t\"position\": \"bottom\",",
+            "\t\"borderStyle\": \"black\",",
+            "\t\"list\": [",
+            "\t\t{",
+            "\t\t\t\"pagePath\": \"\",",
+            "\t\t\t\"text\": \"\",",
+            "\t\t\t\"iconPath\": \"\",",
+            "\t\t\t\"selectedIconPath\": \"\"",
+            "\t\t}",
+            "\t]",
+            "},"
+        ]
+    },
+    "app-network": {
+        "prefix": "networktimeout",
+        "body": [
+            "\"networkTimeout\": {",
+            "\t\"request\": ${1:10000},",
+            "\t\"connectSocket\": ${2:10000},",
+            "\t\"uploadFile\": ${3:10000},",
+            "\t\"downloadFile\": ${4:10000}",
+            "},"
+        ]
+    },
+    "app-debug": {
+        "prefix": "debug",
+        "body": [
+            "\"debug\":true,"
+        ]
+    }
+}

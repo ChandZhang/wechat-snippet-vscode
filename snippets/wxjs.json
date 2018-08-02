@@ -1,20 +1,20 @@
 {
     "wxapp": {
-        "prefix": "wxapp",
+        "prefix": "wx-app",
         "body": [
             "//app.js",
             "App({",
             "\t//onLaunch,onShow: options(path,query,scene,shareTicket,referrerInfo(appId,extraData))",
-            "\tonLaunch: function(options) {",
+            "\tonLaunch: (options)=> {",
             "\r\n\t},",
-            "\tonShow: function(options) {",
+            "\tonShow: (options)=> {",
             "\r\n\t},",
-            "\tonHide: function() {",
+            "\tonHide: ()=>{",
             "\r\n\t},",
-            "\tonError: function(msg) {",
+            "\tonError: (msg)=> {",
             "\r\n\t},",
             "\t//options(path,query,isEntryPage)",
-            "\tonPageNotFound: function(options) {",
+            "\tonPageNotFound: (options)=> {",
             "\r\n\t},",
             "\tglobalData: {",
             "\r\n\t}",
@@ -23,40 +23,70 @@
         "description": "App对象及其生命周期函数和回调函数"
     },
     "wxpage": {
-        "prefix": "wxpage",
+        "prefix": "wx-page",
         "body": [
             "//Page Object",
             "Page({",
             "\tdata: {",
             "\r\n\t},",
             "\t//options(Object)",
-            "\tonLoad: function(options) {",
+            "\tonLoad: (options)=> {",
             "\r\n\t},",
-            "\tonReady: function() {",
+            "\tonReady: ()=>{",
             "\r\n\t},",
-            "\tonShow: function() {",
+            "\tonShow: ()=>{",
             "\r\n\t},",
-            "\tonHide: function() {",
+            "\tonHide: ()=>{",
             "\r\n\t},",
-            "\tonUnload: function() {",
+            "\tonUnload: ()=>{",
             "\r\n\t},",
-            "\tonPullDownRefresh: function() {",
+            "\tonPullDownRefresh: ()=>{",
             "\r\n\t},",
-            "\tonReachBottom: function() {",
+            "\tonReachBottom: ()=>{",
             "\r\n\t},",
-            "\tonShareAppMessage: function() {",
+            "\tonShareAppMessage: ()=>{",
             "\r\n\t},",
-            "\tonPageScroll: function() {",
+            "\tonPageScroll: ()=>{",
             "\r\n\t},",
             "\t//item(index,pagePath,text)",
-            "\tonTabItemTap(item) {",
+            "\tonTabItemTap:(item)=> {",
             "\r\n\t}",
             "});"
         ],
         "description": "Page对象及其生命周期函数和回调函数"
     },
+    "wxComponent": {
+        "prefix": "wx-Component",
+        "body": [
+            "//Component Object",
+            "Component({",
+            "\tproperties: {",
+            "\t\t${1}:{",
+            "\t\t\ttype:${2},",
+            "\t\t\tvalue:${3},",
+            "\t\t\tobserver: ()=>{${4}}",
+            "\t\t},",
+            "\r\n\t},",
+            "\tdata: {",
+            "\r\n\t},",
+            "\tmethods: {",
+            "\r\n\t},",
+            "\tcreated: ()=>{",
+            "\r\n\t},",
+            "\tattached: ()=>{",
+            "\r\n\t},",
+            "\tready: ()=>{",
+            "\r\n\t},",
+            "\tmoved: ()=>{",
+            "\r\n\t},",
+            "\tdetached: ()=>{",
+            "\r\n\t},",
+            "});"
+        ],
+        "description": "Component对象及其生命周期函数和回调函数"
+    },
     "wx.request": {
-        "prefix": "wxrequest",
+        "prefix": "wx-request",
         "body": [
             "wx.request({",
             "\turl: '${1}',",
@@ -73,7 +103,7 @@
         "description": "发起网络请求"
     },
     "wx.uploadFile": {
-        "prefix": "wxuploadFile",
+        "prefix": "wx-uploadFile",
         "body": [
             "wx.uploadFile({",
             "\turl: '${1}',",
@@ -88,7 +118,7 @@
         "description": "将本地资源上传到开发者服务器，客户端发起一个 HTTPS POST 请求，其中 content-type 为 multipart/form-data。"
     },
     "wx.downloadFile": {
-        "prefix": "wxdownloadFile",
+        "prefix": "wx-downloadFile",
         "body": [
             "wx.downloadFile({",
             "\turl: '${1}',",
@@ -100,7 +130,7 @@
         "description": "下载文件资源到本地，客户端直接发起一个HTTP GET请求，返回文件的本地临时路径。"
     },
     "wx.connectSocket": {
-        "prefix": "wxconnectSocket",
+        "prefix": "wx-connectSocket",
         "body": [
             "${1:var sockTask = }wx.connectSocket({",
             "\turl: '${2}',",
@@ -115,17 +145,17 @@
         "description": "创建一个WebSocket连接。"
     },
     "wx.onSocketOpen": {
-        "prefix": "wxonSocketOpen",
+        "prefix": "wx-onSocketOpen",
         "body": ["wx.onSocketOpen(${1:result} => {${2}});"],
         "description": "监听WebSocket连接打开事件。"
     },
     "wx.onSocketError": {
-        "prefix": "wxonSocketError",
+        "prefix": "wx-onSocketError",
         "body": ["wx.onSocketError(${1:result} => {${2}});"],
         "description": "监听WebSocket错误。"
     },
     "wx.sendSocketMessage": {
-        "prefix": "wxsendSocketMessage",
+        "prefix": "wx-sendSocketMessage",
         "body": [
             "wx.sendSocketMessage({",
             "\tdata: ${1},",
@@ -137,12 +167,12 @@
         "description": "通过WebSocket连接发送数据，需要先wx.connectSocket，并在wx.onSocketOpen回调之后才能发送。"
     },
     "wx.onSocketMessage": {
-        "prefix": "wxonSocketMessage",
+        "prefix": "wx-onSocketMessage",
         "body": ["wx.onSocketMessage((${1:result})=>{${2}});"],
         "description": "监听WebSocket接受到服务器的消息事件。"
     },
     "wx.closeSocket": {
-        "prefix": "wxcloseSocket",
+        "prefix": "wx-closeSocket",
         "body": [
             "wx.closeSocket({",
             "\tcode: ${1:1000},",
@@ -155,7 +185,7 @@
         "description": "关闭WebSocket连接。"
     },
     "wx.onSocketClose": {
-        "prefix": "wxonSocketClose",
+        "prefix": "wx-onSocketClose",
         "body": ["wx.onSocketClose((${1:result})=>{${2}});"],
         "description": "监听WebSocket关闭。"
     },
@@ -205,7 +235,7 @@
         "description": "监听WebSocket接受到服务器的消息事件。"
     },
     "wx.chooseImage": {
-        "prefix": "wxchooseImage",
+        "prefix": "wx-chooseImage",
         "body": [
             "wx.chooseImage({",
             "\tcount: ${1:9},",
@@ -219,7 +249,7 @@
         "description": "从本地相册选择图片或使用相机拍照。"
     },
     "wx.previewImage": {
-        "prefix": "wxpreviewImage",
+        "prefix": "wx-previewImage",
         "body": [
             "wx.previewImage({",
             "\tcurrent: '${1}',",
@@ -232,7 +262,7 @@
         "description": "预览图片。"
     },
     "wx.getImageInfo": {
-        "prefix": "wxgetImageInfo",
+        "prefix": "wx-getImageInfo",
         "body": [
             "wx.getImageInfo({",
             "\tsrc: ${1},",
@@ -244,7 +274,7 @@
         "description": "获取图片信息，倘若为网络图片，需先配置download域名才能生效。"
     },
     "wx.saveImageToPhotosAlbum": {
-        "prefix": "wxsaveImageToPhotosAlbum",
+        "prefix": "wx-saveImageToPhotosAlbum",
         "body": [
             "wx.saveImageToPhotosAlbum({",
             "\tfilePath: ${1},",
@@ -256,7 +286,7 @@
         "description": "保存图片到系统相册。需要用户授权 scope.writePhotosAlbum"
     },
     "wx.startRecord": {
-        "prefix": "wxstartRecord",
+        "prefix": "wx-startRecord",
         "body": ["wx.startRecord({",
             "\tsuccess: (result)=>{},",
             "\tfail: ()=>{},",
@@ -266,12 +296,12 @@
         "description": "开始录音。需要用户授权 scope.record。1.6.0 起不再维护"
     },
     "wx.stopRecord": {
-        "prefix": "wxstopRecord",
+        "prefix": "wx-stopRecord",
         "body": ["wx.stopRecord();"],
         "description": "停止录音。1.6.0 起不再维护"
     },
     "wx.getRecorderManager": {
-        "prefix": "wxgetRecorderManager",
+        "prefix": "wx-getRecorderManager",
         "body": ["${1:var recordManager = }wx.getRecorderManager();"],
         "description": "获取全局唯一的录音管理器recorderManager。"
     },
@@ -328,7 +358,7 @@
         "description": "录音错误事件, 会回调错误信息"
     },
     "wx.playVoice": {
-        "prefix": "wxplayVoice",
+        "prefix": "wx-playVoice",
         "body": ["wx.playVoice({",
             "\tfilePath: '${1}',",
             "\tduration: ${2:60},",
@@ -340,17 +370,17 @@
         "description": "开始播放语音，同时只允许一个语音文件正在播放，如果前一个语音文件还没播放完，将中断前一个语音播放。1.6.0 起不再维护"
     },
     "wx.pauseVoice": {
-        "prefix": "wxpauseVoice",
+        "prefix": "wx-pauseVoice",
         "body": ["wx.pauseVoice();"],
         "description": "暂停正在播放的语音。1.6.0 起不再维护"
     },
     "wx.stopVoice": {
-        "prefix": "wxstopVoice",
+        "prefix": "wx-stopVoice",
         "body": ["wx.stopVoice();"],
         "description": "结束播放语音。1.6.0 起不再维护"
     },
     "wx.getBackgroundAudioPlayerState": {
-        "prefix": "wxgetBackgroundAudioPlayerState",
+        "prefix": "wx-getBackgroundAudioPlayerState",
         "body": ["wx.getBackgroundAudioPlayerState({",
             "\tsuccess: (result)=>{},",
             "\tfail: ()=>{},",
@@ -360,7 +390,7 @@
         "description": "获取后台音乐播放状态。1.2.0 起不再维护"
     },
     "wx.playBackgroundAudio": {
-        "prefix": "wxplayBackgroundAudio",
+        "prefix": "wx-playBackgroundAudio",
         "body": ["wx.playBackgroundAudio({",
             "\tdataUrl: '${1}',",
             "\ttitle: '${2}',",
@@ -373,12 +403,12 @@
         "description": "使用后台播放器播放音乐，对于微信客户端来说，只能同时有一个后台音乐在播放。1.2.0 起不再维护"
     },
     "wx.pauseBackgroundAudio": {
-        "prefix": "wxpauseBackgroundAudio",
+        "prefix": "wx-pauseBackgroundAudio",
         "body": ["wx.playBackgroundAudio();"],
         "description": "暂停播放音乐。1.2.0 起不再维护"
     },
     "wx.seekBackgroundAudio": {
-        "prefix": "wxseekBackgroundAudio",
+        "prefix": "wx-seekBackgroundAudio",
         "body": ["wx.seekBackgroundAudio({",
             "\tposition: '${1}',",
             "\tsuccess: (result)=>{},",
@@ -389,27 +419,27 @@
         "description": "控制音乐播放进度(秒)。1.2.0 起不再维护"
     },
     "wx.stopBackgroundAudio": {
-        "prefix": "wxstopBackgroundAudio",
+        "prefix": "wx-stopBackgroundAudio",
         "body": ["wx.stopBackgroundAudio();"],
         "description": "停止播放音乐。1.2.0 起不再维护"
     },
     "wx.onBackgroundAudioPlay": {
-        "prefix": "wxonBackgroundAudioPlay",
+        "prefix": "wx-onBackgroundAudioPlay",
         "body": ["wx.onBackgroundAudioPlay((${1:result})=>{${2}});"],
         "description": "监听音乐播放。1.2.0 起不再维护"
     },
     "wx.onBackgroundAudioPause": {
-        "prefix": "wxonBackgroundAudioPause",
+        "prefix": "wx-onBackgroundAudioPause",
         "body": ["wx.onBackgroundAudioPause((${1:result})=>{${2}});"],
         "description": "监听音乐暂停。1.2.0 起不再维护"
     },
     "wx.onBackgroundAudioStop": {
-        "prefix": "wxonBackgroundAudioStop",
+        "prefix": "wx-onBackgroundAudioStop",
         "body": ["wx.onBackgroundAudioStop((${1:result})=>{${2}});"],
         "description": "监听音乐停止。1.2.0 起不再维护"
     },
     "wx.getBackgroundAudioManager": {
-        "prefix": "wxgetBackgroundAudioManager",
+        "prefix": "wx-getBackgroundAudioManager",
         "body": [
             "// properties(Read only)(duration,currentTime,paused,buffered)",
             "// properties(src(m4a, aac, mp3, wav),startTime,title,epname,singer,coverImgUrl,webUrl,protocol)",
@@ -493,7 +523,7 @@
         "description": "音频加载中事件，当音频因为数据不足，需要停下来加载时会触发"
     },
     "wx.createAudioContext": {
-        "prefix": "wxcreateAudioContext",
+        "prefix": "wx-createAudioContext",
         "body": [
             "${1:var audioContext = }wx.createAudioContext(${2}, this);"
         ],
@@ -520,7 +550,7 @@
         "description": "跳转到指定位置，单位 s。1.6.0 起不再维护"
     },
     "wx.createInnerAudioContext": {
-        "prefix": "wxcreateInnerAudioContext",
+        "prefix": "wx-createInnerAudioContext",
         "body": [
             "// properties(Read only)(duration,currentTime,paused,buffered,volume)",
             "// properties(src,startTime,autoplay,loop,obeyMuteSwitch)",
@@ -650,7 +680,7 @@
         "description": "取消监听onSeeked事件"
     },
     "wx.getAvailableAudioSources": {
-        "prefix": "wxgetAvailableAudioSources",
+        "prefix": "wx-getAvailableAudioSources",
         "body": ["wx.getAvailableAudioSources({",
             "\tsuccess: (result)=>{},",
             "\tfail: ()=>{},",
@@ -661,7 +691,7 @@
     },
 
     "wx.chooseVideo": {
-        "prefix": "wxchooseVideo",
+        "prefix": "wx-chooseVideo",
         "body": [
             "wx.chooseVideo({",
             "\tsourceType:['album', 'camera'],",
@@ -675,7 +705,7 @@
         "description": "拍摄视频或从手机相册中选视频，返回视频的临时文件路径。"
     },
     "wx.saveVideoToPhotosAlbum": {
-        "prefix": "wxsaveVideoToPhotosAlbum",
+        "prefix": "wx-saveVideoToPhotosAlbum",
         "body": [
             "wx.saveVideoToPhotosAlbum({",
             "\tfilePath: '${1}',",
@@ -689,7 +719,7 @@
 
 
     "wx.createVideoContext": {
-        "prefix": "wxcreateVideoContext",
+        "prefix": "wx-createVideoContext",
         "body": [
             "${1:var videoContext = }wx.createVideoContext('${2:video}'${3:, this});"
         ],
@@ -755,7 +785,7 @@
         "description": "隐藏状态栏，仅在iOS全屏下有效"
     },
     "wx.createCameraContext": {
-        "prefix": "wxcreateCameraContext",
+        "prefix": "wx-createCameraContext",
         "body": [
             "${1:var cameraContext = }wx.createCameraContext(${2:this});"
         ],
@@ -799,7 +829,7 @@
 
 
     "wx.createLivePlayerContext": {
-        "prefix": "wxcreateLivePlayerContext",
+        "prefix": "wx-createLivePlayerContext",
         "body": [
             "${1:var livePlayerContext = }wx.createLivePlayerContext('${2:live-player}'${3:, this})"
         ],
@@ -878,7 +908,7 @@
         "description": "退出全屏"
     },
     "wx.createLivePusherContext": {
-        "prefix": "wxcreateLivePusherContext",
+        "prefix": "wx-createLivePusherContext",
         "body": [
             "${1:var livePusherContext = }wx.createLivePusherContext('${2:live-pusher}'${3:, this})"
         ],
@@ -958,7 +988,7 @@
         "description": "切换闪光灯"
     },
     "wx.loadFontFace": {
-        "prefix": "wxloadFontFace",
+        "prefix": "wx-loadFontFace",
         "body": [
             "wx.loadFontFace({",
             "\tfamily: '${1}',",
@@ -976,7 +1006,7 @@
         "description": "动态加载网络字体"
     },
     "wx.saveFile": {
-        "prefix": "wxsaveFile",
+        "prefix": "wx-saveFile",
         "body": [
             "wx.saveFile({",
             "\ttempFilePath: '${1}',",
@@ -988,7 +1018,7 @@
         "description": "保存文件到本地。注意：saveFile会把临时文件移动，因此调用成功后传入的 tempFilePath 将不可用"
     },
     "wx.getSavedFileList": {
-        "prefix": "wxgetSavedFileList",
+        "prefix": "wx-getSavedFileList",
         "body": [
             "wx.getSavedFileList({",
             "\tsuccess: (result)=>{${1}},",
@@ -999,7 +1029,7 @@
         "description": "获取本地已保存的文件列表"
     },
     "wx.getSavedFileInfo": {
-        "prefix": "wxgetSavedFileInfo",
+        "prefix": "wx-getSavedFileInfo",
         "body": [
             "wx.getSavedFileInfo({",
             "\tfilePath: '${1}',",
@@ -1011,7 +1041,7 @@
         "description": "获取本地文件的文件信息。此接口只能用于获取已保存到本地的文件，若需要获取临时文件信息，请使用 wx.getFileInfo 接口"
     },
     "wx.removeSavedFile": {
-        "prefix": "wxremoveSavedFile",
+        "prefix": "wx-removeSavedFile",
         "body": [
             "wx.removeSavedFile({",
             "\tfilePath: ${1},",
@@ -1023,7 +1053,7 @@
         "description": "删除本地存储的文件"
     },
     "wx.openDocument": {
-        "prefix": "wxopenDocument",
+        "prefix": "wx-openDocument",
         "body": [
             "wx.openDocument({",
             "\tfilePath: ${1},",
@@ -1036,7 +1066,7 @@
         "description": "新开页面打开文档，支持格式：doc, xls, ppt, pdf, docx, xlsx, pptx"
     },
     "wx.setStorage": {
-        "prefix": "wxsetStorage",
+        "prefix": "wx-setStorage",
         "body": [
             "wx.setStorage({",
             "\tkey: '${1:key}',",
@@ -1049,12 +1079,12 @@
         "description": "将数据存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个异步接口。"
     },
     "wx.setStorageSync": {
-        "prefix": "wxsetStorageSync",
+        "prefix": "wx-setStorageSync",
         "body": ["wx.setStorageSync(${1:key}, ${2:data});"],
         "description": "将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口。"
     },
     "wx.getStorage": {
-        "prefix": "wxgetStorage",
+        "prefix": "wx-getStorage",
         "body": [
             "wx.getStorage({",
             "\tkey: '${1:key}',",
@@ -1066,12 +1096,12 @@
         "description": "从本地缓存中异步获取指定 key 对应的内容。"
     },
     "wx.getStorageSync": {
-        "prefix": "wxgetStorageSync",
+        "prefix": "wx-getStorageSync",
         "body": ["wx.getStorageSync(${1:key});"],
         "description": "从本地缓存中同步获取指定 key 对应的内容。"
     },
     "wx.getStorageInfo": {
-        "prefix": "wxgetStorageInfo",
+        "prefix": "wx-getStorageInfo",
         "body": ["wx.getStorageInfo({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1081,12 +1111,12 @@
         "description": "异步获取当前storage的相关信息"
     },
     "wx.getStorageInfoSync": {
-        "prefix": "wxgetStorageInfoSync",
+        "prefix": "wx-getStorageInfoSync",
         "body": ["${1:let storageInfo = }wx.getStorageInfoSync();"],
         "description": "同步获取当前storage的相关信息"
     },
     "wx.removeStorage": {
-        "prefix": "wxremoveStorage",
+        "prefix": "wx-removeStorage",
         "body": ["wx.removeStorage({",
             "\tkey: '${1:key},'",
             "\tsuccess: (result)=>{${3}},",
@@ -1097,22 +1127,22 @@
         "description": "从本地缓存中异步移除指定 key。"
     },
     "wx.removeStorageSync": {
-        "prefix": "wxremoveStorageSync",
+        "prefix": "wx-removeStorageSync",
         "body": ["wx.removeStorageSync(${1:key});"],
         "description": "从本地缓存中同步移除指定 key。"
     },
     "wx.clearStorage": {
-        "prefix": "wxclearStorage",
+        "prefix": "wx-clearStorage",
         "body": ["wx.clearStorage();"],
         "description": "异步清除本地数据缓存"
     },
     "wx.clearStorageSync": {
-        "prefix": "wxclearStorageSync",
+        "prefix": "wx-clearStorageSync",
         "body": ["wx.clearStorageSync();"],
         "description": "同步清除本地数据缓存"
     },
     "wx.getLocation": {
-        "prefix": "wxgetLocation",
+        "prefix": "wx-getLocation",
         "body": [
             "wx.getLocation({",
             "\ttype: '${1:wgs84}',",
@@ -1125,7 +1155,7 @@
         "description": "获取当前的地理位置、速度。"
     },
     "wx.chooseLocation": {
-        "prefix": "wxchooseLocation",
+        "prefix": "wx-chooseLocation",
         "body": ["wx.chooseLocation({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1135,7 +1165,7 @@
         "description": "打开地图选择位置。需要用户授权 scope.userLocation"
     },
     "wx.openLocation": {
-        "prefix": "wxopenLocation",
+        "prefix": "wx-openLocation",
         "body": [
             "wx.openLocation({",
             "\tlatitude: ${1:0},",
@@ -1151,7 +1181,7 @@
         "description": "​使用微信内置地图查看位置。 需要用户授权 scope.userLocation"
     },
     "wx.createMapContext": {
-        "prefix": "wxcreateMapContext",
+        "prefix": "wx-createMapContext",
         "body": [
             "${1:var mapContext = }wx.createMapContext('${2:map}'${3:, this});"
         ],
@@ -1229,7 +1259,7 @@
         "description": "获取当前地图的缩放级别"
     },
     "wx.getSystemInfo": {
-        "prefix": "wxgetSystemInfo",
+        "prefix": "wx-getSystemInfo",
         "body": ["wx.getSystemInfo({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1239,22 +1269,22 @@
         "description": "异步获取系统信息。"
     },
     "wx.getSystemInfoSync": {
-        "prefix": "wxgetSystemInfoSync",
+        "prefix": "wx-getSystemInfoSync",
         "body": ["${var systemInfo = }wx.getSystemInfoSync();"],
         "description": "获取系统信息同步接口"
     },
     "wx.canIUse": {
-        "prefix": "wxcanIUse",
+        "prefix": "wx-canIUse",
         "body": ["wx.canIUse(${1});"],
         "description": "判断小程序的API，回调，参数，组件等是否在当前版本可用。"
     },
     "wx.onMemoryWarning": {
-        "prefix": "wxonMemoryWarning",
+        "prefix": "wx-onMemoryWarning",
         "body": ["wx.onMemoryWarning((result) => {${1}});"],
         "description": "监听内存不足的告警事件，Android下有告警等级划分，只有LOW和CRITICAL会回调开发者；iOS无等级划分"
     },
     "wx.getNetworkType": {
-        "prefix": "wxgetNetworkType",
+        "prefix": "wx-getNetworkType",
         "body": ["wx.getNetworkType({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1264,17 +1294,17 @@
         "description": "获取网络类型"
     },
     "wx.onNetworkStatusChange": {
-        "prefix": "wxonNetworkStatusChange",
+        "prefix": "wx-onNetworkStatusChange",
         "body": ["wx.onNetworkStatusChange((result) => {${1}});"],
         "description": "监听网络状态变化。"
     },
     "wx.onAccelerometerChange": {
-        "prefix": "wxonAccelerometerChange",
+        "prefix": "wx-onAccelerometerChange",
         "body": ["wx.onAccelerometerChange((result) => {${1}});"],
         "description": "监听加速度数据，频率：5次/秒，接口调用后会自动开始监听，可使用 wx.stopAccelerometer 停止监听。"
     },
     "wx.startAccelerometer": {
-        "prefix": "wxstartAccelerometer",
+        "prefix": "wx-startAccelerometer",
         "body": [
             "wx.startAccelerometer({",
             "\tinterval: '${1:normal}',",
@@ -1286,7 +1316,7 @@
         "description": "开始监听加速度数据。"
     },
     "wx.stopAccelerometer": {
-        "prefix": "wxstopAccelerometer",
+        "prefix": "wx-stopAccelerometer",
         "body": ["wx.stopAccelerometer({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1296,12 +1326,12 @@
         "description": "停止监听加速度数据。"
     },
     "wx.onCompassChange": {
-        "prefix": "wxonCompassChange",
+        "prefix": "wx-onCompassChange",
         "body": ["wx.onCompassChange((result) => {${1}});"],
         "description": "监听罗盘数据，频率：5次/秒，接口调用后会自动开始监听，可使用wx.stopCompass停止监听。"
     },
     "wx.startCompass": {
-        "prefix": "wxstartCompass",
+        "prefix": "wx-startCompass",
         "body": ["wx.startCompass({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1311,7 +1341,7 @@
         "description": "开始监听罗盘数据。"
     },
     "wx.stopCompass": {
-        "prefix": "wxstopCompass",
+        "prefix": "wx-stopCompass",
         "body": ["wx.stopCompass({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1321,7 +1351,7 @@
         "description": "停止监听罗盘数据。"
     },
     "wx.makePhoneCall": {
-        "prefix": "wxmakePhoneCall",
+        "prefix": "wx-makePhoneCall",
         "body": [
             "wx.makePhoneCall({",
             "\tphoneNumber: ${1},",
@@ -1333,7 +1363,7 @@
         "description": "拨打电话"
     },
     "wx.scanCode": {
-        "prefix": "wxscanCode",
+        "prefix": "wx-scanCode",
         "body": [
             "wx.scanCode({",
             "\tonlyFromCamera: ${1:false},",
@@ -1346,7 +1376,7 @@
         "description": "调起客户端扫码界面，扫码成功后返回对应的结果"
     },
     "wx.setClipboardData": {
-        "prefix": "wxsetClipboardData",
+        "prefix": "wx-setClipboardData",
         "body": [
             "wx.setClipboardData({",
             "\tdata: ${1},",
@@ -1358,7 +1388,7 @@
         "description": "设置系统剪贴板的内容"
     },
     "wx.getClipboardData": {
-        "prefix": "wxgetClipboardData",
+        "prefix": "wx-getClipboardData",
         "body": [
             "wx.getClipboardData({",
             "\tsuccess: (result)=>{${2}},",
@@ -1369,7 +1399,7 @@
         "description": "获取系统剪贴板内容"
     },
     "wx.openBluetoothAdapter": {
-        "prefix": "wxopenBluetoothAdapter",
+        "prefix": "wx-openBluetoothAdapter",
         "body": ["wx.openBluetoothAdapter({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1379,7 +1409,7 @@
         "description": "初始化小程序蓝牙模块，生效周期为调用wx.openBluetoothAdapter至调用wx.closeBluetoothAdapter或小程序被销毁为止。"
     },
     "wx.closeBluetoothAdapter": {
-        "prefix": "wxcloseBluetoothAdapter",
+        "prefix": "wx-closeBluetoothAdapter",
         "body": ["wx.closeBluetoothAdapter({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1389,7 +1419,7 @@
         "description": "关闭蓝牙模块，使其进入未初始化状态。调用该方法将断开所有已建立的链接并释放系统资源。"
     },
     "wx.getBluetoothAdapterState": {
-        "prefix": "wxgetBluetoothAdapterState",
+        "prefix": "wx-getBluetoothAdapterState",
         "body": [
             "wx.getBluetoothAdapterState({",
             "\tsuccess: (result)=>{${1}},",
@@ -1400,12 +1430,12 @@
         "description": "获取本机蓝牙适配器状态"
     },
     "wx.onBluetoothAdapterStateChange": {
-        "prefix": "wxonBluetoothAdapterStateChange",
+        "prefix": "wx-onBluetoothAdapterStateChange",
         "body": ["wx.onBluetoothAdapterStateChange((result) => {${1}});"],
         "description": "监听蓝牙适配器状态变化事件"
     },
     "wx.startBluetoothDevicesDiscovery": {
-        "prefix": "wxstartBluetoothDevicesDiscovery",
+        "prefix": "wx-startBluetoothDevicesDiscovery",
         "body": [
             "wx.startBluetoothDevicesDiscovery({",
             "\tservices:[${1}]",
@@ -1419,7 +1449,7 @@
         "description": "开始搜寻附近的蓝牙外围设备。注意，该操作比较耗费系统资源，请在搜索并连接到设备后调用 stop 方法停止搜索。"
     },
     "wx.stopBluetoothDevicesDiscovery": {
-        "prefix": "wxstopBluetoothDevicesDiscovery",
+        "prefix": "wx-stopBluetoothDevicesDiscovery",
         "body": [
             "wx.stopBluetoothDevicesDiscovery({",
             "\tsuccess: (result)=>{${1}},",
@@ -1430,7 +1460,7 @@
         "description": "停止搜寻附近的蓝牙外围设备。若已经找到需要的蓝牙设备并不需要继续搜索时，建议调用该接口停止蓝牙搜索。"
     },
     "wx.getBluetoothDevices": {
-        "prefix": "wxgetBluetoothDevices",
+        "prefix": "wx-getBluetoothDevices",
         "body": [
             "wx.getBluetoothDevices({",
             "\tsuccess: (result)=>{${1}},",
@@ -1441,12 +1471,12 @@
         "description": "获取在小程序蓝牙模块生效期间所有已发现的蓝牙设备，包括已经和本机处于连接状态的设备。"
     },
     "wx.onBluetoothDeviceFound": {
-        "prefix": "wxonBluetoothDeviceFound",
+        "prefix": "wx-onBluetoothDeviceFound",
         "body": ["wx.onBluetoothDeviceFound((result) => {${1}});"],
         "description": "监听寻找到新设备的事件"
     },
     "wx.getConnectedBluetoothDevices": {
-        "prefix": "wxgetConnectedBluetoothDevices",
+        "prefix": "wx-getConnectedBluetoothDevices",
         "body": [
             "wx.getConnectedBluetoothDevices({",
             "\tservices: [${1}],",
@@ -1458,7 +1488,7 @@
         "description": "根据 uuid 获取处于已连接状态的设备"
     },
     "wx.createBLEConnection": {
-        "prefix": "wxcreateBLEConnection",
+        "prefix": "wx-createBLEConnection",
         "body": [
             "wx.createBLEConnection({",
             "\tdeviceId: ${1},",
@@ -1470,7 +1500,7 @@
         "description": "连接低功耗蓝牙设备。"
     },
     "wx.closeBLEConnection": {
-        "prefix": "wxcloseBLEConnection",
+        "prefix": "wx-closeBLEConnection",
         "body": [
             "wx.closeBLEConnection({",
             "\tdeviceId: ${1},",
@@ -1482,12 +1512,12 @@
         "description": "断开与低功耗蓝牙设备的连接"
     },
     "wx.onBLEConnectionStateChange": {
-        "prefix": "wxonBLEConnectionStateChange",
+        "prefix": "wx-onBLEConnectionStateChange",
         "body": ["wx.onBLEConnectionStateChange((result) => {${1}});"],
         "description": "监听低功耗蓝牙连接状态的改变事件，包括开发者主动连接或断开连接，设备丢失，连接异常断开等等"
     },
     "wx.getBLEDeviceServices": {
-        "prefix": "wxgetBLEDeviceServices",
+        "prefix": "wx-getBLEDeviceServices",
         "body": [
             "wx.getBLEDeviceServices({",
             "\tdeviceId: ${1},",
@@ -1499,7 +1529,7 @@
         "description": "获取蓝牙设备所有 service（服务）"
     },
     "wx.getBLEDeviceCharacteristics": {
-        "prefix": "wxgetBLEDeviceCharacteristics",
+        "prefix": "wx-getBLEDeviceCharacteristics",
         "body": [
             "wx.getBLEDeviceCharacteristics({",
             "\tdeviceId: ${1},",
@@ -1512,7 +1542,7 @@
         "description": "获取蓝牙设备某个服务中的所有 characteristic（特征值）"
     },
     "wx.readBLECharacteristicValue": {
-        "prefix": "wxreadBLECharacteristicValue",
+        "prefix": "wx-readBLECharacteristicValue",
         "body": [
             "wx.readBLECharacteristicValue({",
             "\tdeviceId: ${1},",
@@ -1526,7 +1556,7 @@
         "description": "读取低功耗蓝牙设备的特征值的二进制数据值。注意：必须设备的特征值支持read才可以成功调用，具体参照 characteristic 的 properties 属性"
     },
     "wx.writeBLECharacteristicValue": {
-        "prefix": "wxwriteBLECharacteristicValue",
+        "prefix": "wx-writeBLECharacteristicValue",
         "body": [
             "wx.writeBLECharacteristicValue({",
             "\tdeviceId: ${1},",
@@ -1541,7 +1571,7 @@
         "description": "向低功耗蓝牙设备特征值中写入二进制数据。注意：必须设备的特征值支持write才可以成功调用，具体参照 characteristic 的 properties 属性"
     },
     "wx.notifyBLECharacteristicValueChange": {
-        "prefix": "wxnotifyBLECharacteristicValueChange",
+        "prefix": "wx-notifyBLECharacteristicValueChange",
         "body": [
             "wx.notifyBLECharacteristicValueChange({",
             "\tdeviceId: ${1},",
@@ -1557,12 +1587,12 @@
         "description": "启用低功耗蓝牙设备特征值变化时的 notify 功能，订阅特征值。注意：必须设备的特征值支持notify或者indicate才可以成功调用，具体参照 characteristic 的 properties 属性"
     },
     "wx.onBLECharacteristicValueChange": {
-        "prefix": "wxonBLECharacteristicValueChange",
+        "prefix": "wx-onBLECharacteristicValueChange",
         "body": ["wx.onBLECharacteristicValueChange((result) => {${1}});"],
         "description": "监听低功耗蓝牙设备的特征值变化。必须先启用notify接口才能接收到设备推送的notification。"
     },
     "wx.startBeaconDiscovery": {
-        "prefix": "wxstartBeaconDiscovery",
+        "prefix": "wx-startBeaconDiscovery",
         "body": [
             "wx.startBeaconDiscovery({",
             "\tuuids: [${1}],",
@@ -1574,7 +1604,7 @@
         "description": "开始搜索附近的iBeacon设备"
     },
     "wx.stopBeaconDiscovery": {
-        "prefix": "wxstopBeaconDiscovery",
+        "prefix": "wx-stopBeaconDiscovery",
         "body": ["wx.stopBeaconDiscovery({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1584,7 +1614,7 @@
         "description": "停止搜索附近的iBeacon设备"
     },
     "wx.getBeacons": {
-        "prefix": "wxgetBeacons",
+        "prefix": "wx-getBeacons",
         "body": ["wx.getBeacons({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1594,17 +1624,17 @@
         "description": "获取所有已搜索到的iBeacon设备"
     },
     "wx.onBeaconUpdate": {
-        "prefix": "wxonBeaconUpdate",
+        "prefix": "wx-onBeaconUpdate",
         "body": ["wx.onBeaconUpdate((result) => {${1}});"],
         "description": "监听 iBeacon 设备的更新事件"
     },
     "wx.onBeaconServiceChange": {
-        "prefix": "wxonBeaconServiceChange",
+        "prefix": "wx-onBeaconServiceChange",
         "body": ["wx.onBeaconServiceChange((result) => {${1}});"],
         "description": "监听 iBeacon 服务的状态变化"
     },
     "wx.setScreenBrightness": {
-        "prefix": "wxsetScreenBrightness",
+        "prefix": "wx-setScreenBrightness",
         "body": ["wx.setScreenBrightness({",
             "\tvalue: ${1},",
             "\tsuccess: (result)=>{${2}},",
@@ -1615,7 +1645,7 @@
         "description": "设置屏幕亮度"
     },
     "wx.getScreenBrightness": {
-        "prefix": "wxgetScreenBrightness",
+        "prefix": "wx-getScreenBrightness",
         "body": [
             "wx.getScreenBrightness({",
             "\tsuccess: (result)=>{${1}},",
@@ -1626,7 +1656,7 @@
         "description": "获取屏幕亮度。"
     },
     "wx.vibrateLong": {
-        "prefix": "wxvibrateLong",
+        "prefix": "wx-vibrateLong",
         "body": ["wx.vibrateLong({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1636,7 +1666,7 @@
         "description": "使手机发生较长时间的振动（400ms）"
     },
     "wx.vibrateShort": {
-        "prefix": "wxvibrateShort",
+        "prefix": "wx-vibrateShort",
         "body": ["wx.vibrateShort({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
@@ -1646,7 +1676,7 @@
         "description": "使手机发生较短时间的振动（15ms）"
     },
     "wx.setKeepScreenOn": {
-        "prefix": "wxsetKeepScreenOn",
+        "prefix": "wx-setKeepScreenOn",
         "body": ["wx.setKeepScreenOn({",
             "\tkeepScreenOn: ${1:true},",
             "\tsuccess: (result)=>{${1}},",
@@ -1657,12 +1687,12 @@
         "description": "设置是否保持常亮状态。仅在当前小程序生效，离开小程序后设置失效。"
     },
     "wx.onUserCaptureScreen": {
-        "prefix": "wxonUserCaptureScreen",
+        "prefix": "wx-onUserCaptureScreen",
         "body": ["wx.onUserCaptureScreen((result)=>{${1}});"],
         "description": "监听用户主动截屏事件，用户使用系统截屏按键截屏时触发此事件"
     },
     "wx.addPhoneContact": {
-        "prefix": "wxaddPhoneContact",
+        "prefix": "wx-addPhoneContact",
         "body": [
             "wx.addPhoneContact({",
             "\tphotoFilePath: ${1},",
@@ -1681,16 +1711,17 @@
         "description": "调用后，用户可以选择将该表单以“新增联系人”或“添加到已有联系人”的方式，写入手机系统通讯录，完成手机通讯录联系人和联系方式的增加。此API参数非常多，请参考文档。"
     },
     "wx.getHCEState": {
-        "prefix": "wxgetHCEState",
-        "body": ["wx.getHCEState({", 
+        "prefix": "wx-getHCEState",
+        "body": ["wx.getHCEState({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
-            "});"],
+            "});"
+        ],
         "description": "判断当前设备是否支持 HCE 能力"
     },
     "wx.startHCE": {
-        "prefix": "wxstartHCE",
+        "prefix": "wx-startHCE",
         "body": [
             "wx.startHCE({",
             "\taid_list: [${1}],",
@@ -1702,21 +1733,22 @@
         "description": "初始化NFC模块"
     },
     "wx.stopHCE": {
-        "prefix": "wxstopHCE",
-        "body": ["wx.stopHCE({", 
+        "prefix": "wx-stopHCE",
+        "body": ["wx.stopHCE({",
             "\tsuccess: (result)=>{${1}},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
-            "});"],
+            "});"
+        ],
         "description": "关闭 NFC 模块。仅在安卓系统下有效。"
     },
     "wx.onHCEMessage": {
-        "prefix": "wxonHCEMessage",
+        "prefix": "wx-onHCEMessage",
         "body": ["wx.onHCEMessage((result) => {${2}});"],
         "description": "监听 NFC 设备的消息回调，并在回调中处理。"
     },
     "wx.sendHCEMessage": {
-        "prefix": "wxsendHCEMessage",
+        "prefix": "wx-sendHCEMessage",
         "body": [
             "wx.sendHCEMessage({",
             "\tdata: ${1:<ArrayBuffer类型>},",
@@ -1727,44 +1759,57 @@
         ],
         "description": "发送 NFC 消息。仅在安卓系统下有效。"
     },
-
-
-
-    
     "wx.startWifi": {
-        "prefix": "wxstartWifi",
-        "body": ["wx.startWifi({", "\tsuccess: ()=>{${1}}", "});"],
-        "description": "初始化 Wi-Fi 模块。"
+        "prefix": "wx-startWifi",
+        "body": ["wx.startWifi({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "初始化Wi-Fi模块。"
     },
     "wx.stopWifi": {
-        "prefix": "wxstopWifi",
-        "body": ["wx.stopWifi({", "\tsuccess: ()=>{${1}}", "});"],
-        "description": "关闭 Wi-Fi 模块。"
+        "prefix": "wx-stopWifi",
+        "body": ["wx.stopWifi({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "关闭Wi-Fi模块。"
     },
     "wx.connectWifi": {
-        "prefix": "wxconnectWifi",
+        "prefix": "wx-connectWifi",
         "body": [
             "wx.connectWifi({",
             "\tSSID: ${1},",
             "\tBSSID: ${2},",
             "\tpassword: ${3},",
-            "\tsuccess: ${4:res} => {${5}}",
+            "\tsuccess: (result)=>{${4}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
-        "description": "连接 Wi-Fi。若已知 Wi-Fi 信息，可以直接利用该接口连接。"
+        "description": "连接Wi-Fi。若已知Wi-Fi信息，可以直接利用该接口连接。"
     },
     "wx.getWifiList": {
-        "prefix": "wxgetWifiList",
-        "body": ["wx.getWifiList();"],
-        "description": "请求获取 Wi-Fi 列表，在 onGetWifiList 注册的回调中返回 wifiList 数据。"
+        "prefix": "wx-getWifiList",
+        "body": ["wx.getWifiList({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "请求获取Wi-Fi列表，在onGetWifiList注册的回调中返回wifiList数据。"
     },
     "wx.onGetWifiList": {
-        "prefix": "wxonGetWifiList",
-        "body": ["wx.onGetWifiList(${1:res} => {${2}});"],
-        "description": "监听在获取到 Wi-Fi 列表数据时的事件，在回调中将返回 wifiList。"
+        "prefix": "wx-onGetWifiList",
+        "body": ["wx.onGetWifiList((result) => {${1}});"],
+        "description": "监听在获取到Wi-Fi列表数据时的事件，在回调中将返回wifiList。"
     },
     "wx.setWifiList": {
-        "prefix": "wxsetWifiList",
+        "prefix": "wx-setWifiList",
         "body": [
             "wx.setWifiList({",
             "\twifiList: [",
@@ -1773,220 +1818,322 @@
             "\t\t\tBSSID: ${2},",
             "\t\t\tpassword: ${3}",
             "\t\t}",
-            "\t]",
+            "\t],",
+            "\tsuccess: (result)=>{${4}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "iOS特有接口，在 onGetWifiList 回调后，利用接口设置 wifiList 中 AP 的相关信息。"
     },
     "wx.onWifiConnected": {
-        "prefix": "wxonWifiConnected",
-        "body": ["wx.onWifiConnected(${1:res} => {${2}});"],
-        "description": "监听连接上 Wi-Fi 的事件。"
+        "prefix": "wx-onWifiConnected",
+        "body": ["wx.onWifiConnected((result) => {${1}});"],
+        "description": "监听连接上Wi-Fi的事件。"
     },
     "wx.getConnectedWifi": {
-        "prefix": "wxgetConnectedWifi",
+        "prefix": "wx-getConnectedWifi",
         "body": [
             "wx.getConnectedWifi({",
-            "\tsuccess: ${1:res} => {${2}}",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
-        "description": "获取已连接中的 Wi-Fi 信息"
+        "description": "获取已连接中的Wi-Fi信息"
     },
     "wx.showToast": {
-        "prefix": "wxshowToast",
+        "prefix": "wx-showToast",
         "body": [
             "wx.showToast({",
-            "\ttitle: ${1},",
+            "\ttitle: '${1}',",
             "\ticon: '${2:none}',",
-            "\tduration: ${3:1500},",
-            "\tmask: ${4:false},",
+            "\timage: '${3}',",
+            "\tduration: ${4:1500},",
+            "\tmask: ${5:false},",
+            "\tsuccess: (result)=>{${6}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "显示消息提示框"
     },
     "wx.showLoading": {
-        "prefix": "wxshowLoading",
+        "prefix": "wx-showLoading",
         "body": [
             "wx.showLoading({",
             "\ttitle: ${1},",
             "\tmask: ${2:true},",
+            "\tsuccess: (result)=>{${3}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
-        "description": "显示 loading 提示框, 需主动调用 wx.hideLoading 才能关闭提示框"
+        "description": "显示loading提示框, 需主动调用wx.hideLoading才能关闭提示框"
     },
     "wx.hideToast": {
-        "prefix": "wxhideToast",
+        "prefix": "wx-hideToast",
         "body": ["wx.hideToast();"],
         "description": "隐藏消息提示框"
     },
     "wx.hideLoading": {
-        "prefix": "wxhideLoading",
+        "prefix": "wx-hideLoading",
         "body": ["wx.hideLoading();"],
-        "description": "隐藏 loading 提示框"
+        "description": "隐藏loading提示框"
     },
     "wx.showModal": {
-        "prefix": "wxshowModal",
+        "prefix": "wx-showModal",
         "body": [
             "wx.showModal({",
-            "\ttitle: ${1},",
-            "\tcontent: ${2},",
+            "\ttitle: '${1}',",
+            "\tcontent: '${2}',",
             "\tshowCancel: ${3:true},",
             "\tcancelText: '${4:取消}',",
             "\tcancelColor: '${5:#000000}',",
             "\tconfirmText: '${6:确定}',",
             "\tconfirmColor: '${7:#3CC51F}',",
-            "\tsuccess: ${8:res} => {",
-            "\t\t${9:if(res.confirm){${10}}}",
-            "\t}",
+            "\tsuccess: (result) => {",
+            "\t\t${8:if(result.confirm){${9}}}",
+            "\t},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "显示模态弹窗"
     },
     "wx.showActionSheet": {
-        "prefix": "wxshowActionSheet",
+        "prefix": "wx-showActionSheet",
         "body": [
             "wx.showActionSheet({",
             "\titemList: [${1}],",
             "\titemColor: '${2:#000000}',",
-            "\tsuccess: ${3:res} => {${4}}",
+            "\tsuccess: (result)=>{${3}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "显示操作菜单"
     },
-    "wx.setTabBarBadge": {
-        "prefix": "wxsetTabBarBadge",
-        "body": [
-            "wx.setTabBarBadge({",
-            "\tindex: ${1},",
-            "\ttext: ${2}",
+    "wx.setTopBarText": {
+        "prefix": "wx-setTopBarText",
+        "body": ["wx.setTopBarText({",
+            "\ttext: '${1}',",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
-        "description": "为 tabBar 某一项的右上角添加文本"
-    },
-    "wx.removeTabBarBadge": {
-        "prefix": "wxremoveTabBarBadge",
-        "body": ["wx.removeTabBarBadge({", "\tindex: ${1}", "});"],
-        "description": "移除 tabBar 某一项右上角的文本"
-    },
-    "wx.setNavigationBarTitle": {
-        "prefix": "wxsetNavigationBarTitle",
-        "body": ["wx.setNavigationBarTitle({", "\ttitle: ${1},", "});"],
-        "description": "动态设置当前页面的标题。"
-    },
-    "wx.setTopBarText": {
-        "prefix": "wxsetTopBarText",
-        "body": ["wx.setTopBarText({", "\ttext: ${1}", "});"],
         "description": "动态设置置顶栏文字内容，只有当前小程序被置顶时能生效，如果当前小程序没有被置顶，也能调用成功，但是不会立即生效，只有在用户将这个小程序置顶后才换上设置的文字内容。"
     },
+    "wx.setNavigationBarTitle": {
+        "prefix": "wx-setNavigationBarTitle",
+        "body": ["wx.setNavigationBarTitle({",
+            "\ttitle: '${1}',",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "动态设置当前页面的标题。"
+    },
     "wx.showNavigationBarLoading": {
-        "prefix": "wxshowNavigationBarLoading",
+        "prefix": "wx-showNavigationBarLoading",
         "body": ["wx.showNavigationBarLoading();"],
         "description": "在当前页面显示导航条加载动画。"
     },
     "wx.hideNavigationBarLoading": {
-        "prefix": "wxhideNavigationBarLoading",
+        "prefix": "wx-hideNavigationBarLoading",
         "body": ["wx.hideNavigationBarLoading();"],
         "description": "隐藏导航条加载动画。"
     },
     "wx.setNavigationBarColor": {
-        "prefix": "wxsetNavigationBarColor",
+        "prefix": "wx-setNavigationBarColor",
         "body": [
             "wx.setNavigationBarColor({",
             "\tfrontColor: '${1:#ffffff}',",
             "\tbackgroundColor: '${2:#000000}',",
             "\tanimation: {",
             "\t\tduration: ${3:0},",
-            "\t\ttimingFunc: '${4:linear}',",
+            "\t\ttimingFunc: '${4:linear}'",
             "\t},",
+            "\tsuccess: (result)=>{${5}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "设置导航栏颜色"
     },
+    "wx.setTabBarBadge": {
+        "prefix": "wx-setTabBarBadge",
+        "body": [
+            "wx.setTabBarBadge({",
+            "\tindex: ${1},",
+            "\ttext: '${2}',",
+            "\tsuccess: (result)=>{${3}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "为tabBar某一项的右上角添加文本"
+    },
+    "wx.removeTabBarBadge": {
+        "prefix": "wx-removeTabBarBadge",
+        "body": ["wx.removeTabBarBadge({",
+            "\tindex: ${1},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "移除tabBar某一项右上角的文本"
+    },
     "wx.showTabBarRedDot": {
-        "prefix": "wxshowTabBarRedDot",
-        "body": ["wx.showTabBarRedDot({", "\tindex: ${1}", "});"],
-        "description": "显示 tabBar 某一项的右上角的红点"
+        "prefix": "wx-showTabBarRedDot",
+        "body": ["wx.showTabBarRedDot({",
+            "\tindex: ${1},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "显示tabBar某一项的右上角的红点"
     },
     "wx.hideTabBarRedDot": {
-        "prefix": "wxhideTabBarRedDot",
-        "body": ["wx.hideTabBarRedDot({", "\tindex: ${1}", "});"],
-        "description": "隐藏 tabBar 某一项的右上角的红点"
+        "prefix": "wx-hideTabBarRedDot",
+        "body": ["wx.hideTabBarRedDot({",
+            "\tindex: ${1},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "隐藏tabBar某一项的右上角的红点"
     },
     "wx.setTabBarStyle": {
-        "prefix": "wxsetTabBarStyle",
+        "prefix": "wx-setTabBarStyle",
         "body": [
             "wx.setTabBarStyle({",
             "\tcolor: '${1:#000000}',",
             "\tselectedColor: '${2:#1AAD16}',",
             "\tbackgroundColor: '${3:#e3e3e3}',",
             "\tborderStyle: '${4:black}',",
+            "\tsuccess: (result)=>{${5}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
-        "description": "动态设置 tabBar 的整体样式"
+        "description": "动态设置tabBar的整体样式"
     },
     "wx.setTabBarItem": {
-        "prefix": "wxsetTabBarItem",
+        "prefix": "wx-setTabBarItem",
         "body": [
             "wx.setTabBarItem({",
             "\tindex: ${1},",
             "\ttext: ${2},",
             "\ticonPath: ${3},",
             "\tselectedIconPath: ${4},",
+            "\tsuccess: (result)=>{${5}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
-        "description": "动态设置 tabBar 某一项的内容"
+        "description": "动态设置tabBar某一项的内容"
     },
     "wx.showTabBar": {
-        "prefix": "wxshowTabBar",
-        "body": ["wx.showTabBar({", "\tanimation: ${1:false}", "});"],
+        "prefix": "wx-showTabBar",
+        "body": ["wx.showTabBar({",
+            "\tanimation: ${1:false},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "显示 tabBar"
     },
     "wx.hideTabBar": {
-        "prefix": "wxhideTabBar",
-        "body": ["wx.hideTabBar({", "\tanimation: ${1:false}", "});"],
+        "prefix": "wx-hideTabBar",
+        "body": ["wx.hideTabBar({",
+            "\tanimation: ${1:false},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "隐藏 tabBar"
     },
     "wx.setBackgroundColor": {
-        "prefix": "wxsetBackgroundColor",
-        "body": ["wx.setBackgroundColor({", "\tbackgroundColor: '${1}'", "});"],
+        "prefix": "wx-setBackgroundColor",
+        "body": ["wx.setBackgroundColor({",
+            "\tbackgroundColor: '${1}',",
+            "\tbackgroundColorTop: '${2}',",
+            "\tbackgroundColorBottom: '${3}'",
+            "});"
+        ],
         "description": "动态设置窗口的背景色"
     },
     "wx.setBackgroundTextStyle": {
-        "prefix": "wxsetBackgroundTextStyle",
+        "prefix": "wx-setBackgroundTextStyle",
         "body": [
             "wx.setBackgroundTextStyle({",
             "\ttextStyle: '${1:dark}'",
             "});"
         ],
-        "description": "动态设置下拉背景字体、loading 图的样式"
+        "description": "动态设置下拉背景字体、loading图的样式"
     },
     "wx.navigateTo": {
-        "prefix": "wxnavigateTo",
-        "body": ["wx.navigateTo({", "\turl: ${1}", "});"],
+        "prefix": "wx-navigateTo",
+        "body": ["wx.navigateTo({",
+            "\turl: '${1}',",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "保留当前页面，跳转到应用内的某个页面，使用wx.navigateBack可以返回到原页面。目前页面路径最多只能十层。"
     },
     "wx.redirectTo": {
-        "prefix": "wxredirectTo",
-        "body": ["wx.redirectTo({", "\turl: ${1}", "});"],
+        "prefix": "wx-redirectTo",
+        "body": ["wx.redirectTo({",
+            "\turl: '${1}',",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "关闭当前页面，跳转到应用内的某个页面。"
     },
     "wx.reLaunch": {
-        "prefix": "wxreLaunch",
-        "body": ["wx.reLaunch({", "\turl: ${1}", "});"],
+        "prefix": "wx-reLaunch",
+        "body": ["wx.reLaunch({",
+            "\turl: '${1}',",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "关闭所有页面，打开到应用内的某个页面。"
     },
     "wx.switchTab": {
-        "prefix": "wxswitchTab",
-        "body": ["wx.switchTab({", "\turl: ${1}", "});"],
-        "description": "跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面"
+        "prefix": "wx-switchTab",
+        "body": ["wx.switchTab({",
+            "\turl: '${1}',",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "跳转到tabBar页面，并关闭其他所有非tabBar页面"
     },
     "wx.navigateBack": {
-        "prefix": "wxnavigateBack",
-        "body": ["wx.navigateBack({", "\tdelta: ${1:1}", "});"],
+        "prefix": "wx-navigateBack",
+        "body": ["wx.navigateBack({",
+            "\tdelta: ${1:1}",
+            "});"
+        ],
         "description": "关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages()) 获取当前的页面栈，决定需要返回几层。"
     },
     "wx.createAnimation": {
-        "prefix": "wxcreateAnimation",
+        "prefix": "wx-createAnimation",
         "body": [
             "${1:let animation = }wx.createAnimation({",
             "\tduration: ${2:400},",
@@ -1997,8 +2144,149 @@
         ],
         "description": "创建一个动画实例animation。调用实例的方法来描述动画。"
     },
+
+    "animation.opacity": {
+        "prefix": "animation-opacity",
+        "body": ["animation.opacity(${1});"],
+        "description": "透明度，参数范围 0~1"
+    },
+    "animation.backgroundColor": {
+        "prefix": "animation-backgroundColor",
+        "body": ["animation.backgroundColor(${1});"],
+        "description": "颜色值"
+    },
+    "animation.width": {
+        "prefix": "animation-width",
+        "body": ["animation.width(${1});"],
+        "description": "宽度"
+    },
+    "animation.height": {
+        "prefix": "animation-height",
+        "body": ["animation.height(${1});"],
+        "description": "长度"
+    },
+    "animation.top": {
+        "prefix": "animation-top",
+        "body": ["animation.top(${1});"],
+        "description": "顶部距离"
+    },
+    "animation.left": {
+        "prefix": "animation-left",
+        "body": ["animation.height(${1});"],
+        "description": "左侧距离"
+    },
+    "animation.bottom": {
+        "prefix": "animation-bottom",
+        "body": ["animation.bottom(${1});"],
+        "description": "底部距离"
+    },
+    "animation.right": {
+        "prefix": "animation-right",
+        "body": ["animation.right(${1});"],
+        "description": "右侧距离"
+    },
+    "animation.rotate": {
+        "prefix": "animation-rotate",
+        "body": ["animation.rotate(${1});"],
+        "description": "绕原点旋转"
+    },
+    "animation.rotateX": {
+        "prefix": "animation-rotateX",
+        "body": ["animation.rotateX(${1});"],
+        "description": "绕x轴旋转"
+    },
+    "animation.rotateY": {
+        "prefix": "animation-rotateY",
+        "body": ["animation.rotateY(${1});"],
+        "description": "绕y轴旋转"
+    },
+    "animation.rotateZ": {
+        "prefix": "animation-rotateZ",
+        "body": ["animation.rotateZ(${1});"],
+        "description": "绕z轴旋转"
+    },
+    "animation.rotate3d": {
+        "prefix": "animation-rotate3d",
+        "body": ["animation.rotate3d(${1},${2},${3},${4});"],
+        "description": "3d旋转"
+    },
+    "animation.scale": {
+        "prefix": "animation-scale",
+        "body": ["animation.scale(${1}${2:,});"],
+        "description": "x轴[y轴]缩放。一个参数时，表示在X轴、Y轴两个相同；两个参数时表示在X轴，在Y轴不同"
+    },
+    "animation.scaleX": {
+        "prefix": "animation-scaleX",
+        "body": ["animation.scaleX(${1});"],
+        "description": "x轴缩放"
+    },
+    "animation.scaleY": {
+        "prefix": "animation-scaleY",
+        "body": ["animation.scaleY(${1});"],
+        "description": "y轴缩放"
+    },
+    "animation.scaleZ": {
+        "prefix": "animation-scaleZ",
+        "body": ["animation.scaleZ(${1});"],
+        "description": "z轴缩放"
+    },
+    "animation.scale3d": {
+        "prefix": "animation-scale3d",
+        "body": ["animation.scale3d(${1},${2},${3});"],
+        "description": "3d缩放"
+    },
+    "animation.translate": {
+        "prefix": "animation-translate",
+        "body": ["animation.translate(${1}${2:,});"],
+        "description": "x轴[y轴]偏移。一个参数时，表示在X轴；两个参数时表示在X轴，在Y轴"
+    },
+    "animation.translateX": {
+        "prefix": "animation-translateX",
+        "body": ["animation.translateX(${1});"],
+        "description": "x轴偏移"
+    },
+    "animation.translateY": {
+        "prefix": "animation-translateY",
+        "body": ["animation.translateY(${1});"],
+        "description": "y轴偏移"
+    },
+    "animation.translateZ": {
+        "prefix": "animation-translateZ",
+        "body": ["animation.translateZ(${1});"],
+        "description": "z轴偏移"
+    },
+    "animation.translate3d": {
+        "prefix": "animation-translate3d",
+        "body": ["animation.translate3d(${1},${2},${3});"],
+        "description": "3d偏移"
+    },
+    "animation.skew": {
+        "prefix": "animation-skew",
+        "body": ["animation.skew(${1}${2:,});"],
+        "description": "x轴[y轴]倾斜。一个参数时，表示在X轴；两个参数时表示在X轴，在Y轴"
+    },
+    "animation.skewX": {
+        "prefix": "animation-skewX",
+        "body": ["animation.skewX(${1});"],
+        "description": "x轴倾斜"
+    },
+    "animation.skewY": {
+        "prefix": "animation-skewY",
+        "body": ["animation.skewY(${1});"],
+        "description": "y轴倾斜"
+    },
+    "animation.matrix": {
+        "prefix": "animation-matrix",
+        "body": ["animation.matrix(${1},${2},${3},${4},${5},${6});"],
+        "description": "平面矩阵变换"
+    },
+    "animation.matrix3d": {
+        "prefix": "animation-matrix3d",
+        "body": ["animation.matrix3d(${1},${2},${3},${4},${5},${6},${7},${8},${9},${10},${11},${12},${13},${14},${15},${16});"],
+        "description": "立体矩阵变换"
+    },
     "wx.pageScrollTo": {
-        "prefix": "wxpageScrollTo",
+        "prefix": "wx-pageScrollTo",
         "body": [
             "wx.pageScrollTo({",
             "\tscrollTop: ${1:0},",
@@ -2007,129 +2295,299 @@
         ],
         "description": "将页面滚动到目标位置。"
     },
-    "onPullDownRefresh": {
-        "prefix": "onPullDownRefresh",
-        "body": ["onPullDownRefresh(){", "${1}", "}"],
-        "description": "在 Page 中定义 onPullDownRefresh 处理函数，监听该页面用户下拉刷新事件。"
-    },
     "wx.startPullDownRefresh": {
-        "prefix": "wxstartPullDownRefresh",
-        "body": ["wx.startPullDownRefresh();"],
+        "prefix": "wx-startPullDownRefresh",
+        "body": ["wx.startPullDownRefresh({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "开始下拉刷新，调用后触发下拉刷新动画，效果与用户手动下拉刷新一致"
     },
     "wx.stopPullDownRefresh": {
-        "prefix": "wxstopPullDownRefresh",
+        "prefix": "wx-stopPullDownRefresh",
         "body": ["wx.stopPullDownRefresh"],
         "description": "停止当前页面下拉刷新。"
     },
+    "wx.getExtConfig": {
+        "prefix": "wx-getExtConfig",
+        "body": ["wx.getExtConfig({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "获取第三方平台自定义的数据字段"
+    },
+    "wx.getExtConfigSync": {
+        "prefix": "wx-getExtConfigSync",
+        "body": ["${1:let extConfig = }wx.getExtConfigSync();"],
+        "description": "同步获取第三方平台自定义的数据字段"
+    },
     "wx.login": {
-        "prefix": "wxlogin",
-        "body": ["wx.login({", "\tsuccess: ${1:res} => {${2}}", "});"],
+        "prefix": "wx-login",
+        "body": ["wx.login({",
+            "\ttimeout:${1:10000},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "调用接口wx.login() 获取临时登录凭证（code）"
     },
     "wx.checkSession": {
-        "prefix": "wxcheckSession",
+        "prefix": "wx-checkSession",
         "body": [
             "wx.checkSession({",
-            "\tsuccess: ()=>{${1}},",
-            "\tfail: ()=>{${2}}",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "校验用户当前session_key是否有效。"
     },
     "wx.authorize": {
-        "prefix": "wxauthorize",
+        "prefix": "wx-authorize",
         "body": [
             "wx.authorize({",
             "\tscope: '${1}',",
-            "\tsuccess: ${2:res} => {${3}},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "提前向用户发起授权请求。调用后会立刻弹窗询问用户是否同意授权小程序使用某项功能或获取用户的某些数据，但不会实际调用对应接口。如果用户之前已经同意授权，则不会出现弹窗，直接返回成功。"
     },
     "wx.getUserInfo": {
-        "prefix": "wxgetUserInfo",
+        "prefix": "wx-getUserInfo",
         "body": [
             "wx.getUserInfo({",
             "\twithCredentials: '${1:false}',",
             "\tlang: '${2:zh_CN}',",
-            "\tsuccess: ${3:res} => {${4}}",
+            "\ttimeout:${3:10000},",
+            "\tsuccess: (result)=>{${4}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "当用户未授权过，调用该接口将直接报错；当用户授权过，可以使用该接口获取用户信息"
     },
     "wx.requestPayment": {
-        "prefix": "wxrequestPayment",
+        "prefix": "wx-requestPayment",
         "body": [
             "wx.requestPayment({",
-            "\ttimeStamp: ${1},",
-            "\tnonceStr: ${2},",
-            "\tpackage: ${3},",
-            "\tsignType: ${4},",
-            "\tpaySign: ${5},",
-            "\tsuccess: ${6:res} => {${7}},",
-            "\tfail: ()=>{}",
+            "\ttimeStamp: '${1}',",
+            "\tnonceStr: '${2}',",
+            "\tpackage: '${3}',",
+            "\tsignType: '${4}',",
+            "\tpaySign: '${5}',",
+            "\tsuccess: (result)=>{${6}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "发起微信支付。"
     },
     "wx.showShareMenu": {
-        "prefix": "wxshowShareMenu",
-        "body": ["wx.showShareMenu({", "\twithShareTicket: ${1:false}", "});"],
+        "prefix": "wx-showShareMenu",
+        "body": [
+            "wx.showShareMenu({",
+            "\twithShareTicket: ${1:false}",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "显示当前页面的转发按钮"
     },
     "wx.hideShareMenu": {
-        "prefix": "wxhideShareMenu",
-        "body": ["wx.hideShareMenu();"],
+        "prefix": "wx-hideShareMenu",
+        "body": ["wx.hideShareMenu({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "隐藏转发按钮"
     },
     "wx.updateShareMenu": {
-        "prefix": "wxupdateShareMenu",
+        "prefix": "wx-updateShareMenu",
         "body": [
             "wx.updateShareMenu({",
             "\twithShareTicket: ${1:false}",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "更新转发属性"
     },
     "wx.getShareInfo": {
-        "prefix": "wxgetShareInfo",
+        "prefix": "wx-getShareInfo",
         "body": [
             "wx.getShareInfo({",
             "\tshareTicket: ${1},",
-            "\tsuccess: ${2:res} => {${3}}",
+            "\ttimeout:${2:10000},",
+            "\tsuccess: (result)=>{${3}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "获取转发详细信息"
     },
     "wx.chooseAddress": {
-        "prefix": "wxchooseAddress",
-        "body": ["wx.chooseAddress({", "\tsuccess: ${1:res} => {${2}}", "});"],
+        "prefix": "wx-chooseAddress",
+        "body": ["wx.chooseAddress({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
         "description": "调起用户编辑收货地址原生界面，并在编辑完成后返回用户选择的地址。"
     },
+    "wx.addCard": {
+        "prefix": "wx-addCard",
+        "body": [
+            "wx.addCard({",
+            "\tcardList: [${1}],",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "批量添加卡券"
+    },
+    "wx.openCard": {
+        "prefix": "wx-openCard",
+        "body": [
+            "wx.openCard({",
+            "\tcardList: [${1}],",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "查看微信卡包中的卡券"
+    },
+    "wx.openSetting": {
+        "prefix": "wx-openSetting",
+        "body": ["wx.openSetting({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "调起客户端小程序设置界面，返回用户设置的操作结果"
+    },
+    "wx.getSetting": {
+        "prefix": "wx-getSetting",
+        "body": ["wx.getSetting({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "获取用户的当前设置"
+    },
     "wx.getWeRunData": {
-        "prefix": "wxgetWeRunData",
-        "body": ["wx.getWeRunData({", "\tsuccess: ${1:res} => {${2}}", "});"],
-        "description": "获取用户过去三十天微信运动步数，需要先调用 wx.login 接口。"
+        "prefix": "wx-getWeRunData",
+        "body": ["wx.getWeRunData({",
+            "\ttimeout:${1:10000},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "获取用户过去三十天微信运动步数，需要先调用 wx.login 接口"
+    },
+    "wx.navigateToMiniProgram": {
+        "prefix": "wx-navigateToMiniProgram",
+        "body": ["wx.navigateToMiniProgram({",
+            "\tappId:'${1}',",
+            "\tpath:'${2}',",
+            "\textraData:{${3}},",
+            "\tenvVersion:'${4:release}',",
+            "\tsuccess: (result)=>{${5}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "打开同一公众号下关联的另一个小程序"
+    },
+    "wx.navigateBackMiniProgram": {
+        "prefix": "wx-navigateBackMiniProgram",
+        "body": ["wx.navigateBackMiniProgram({",
+            "\textraData:{${1}},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "返回到上一个小程序，只有在当前小程序是被其他小程序打开时可以调用成功"
+    },
+    "wx.chooseInvoiceTitle": {
+        "prefix": "wx-chooseInvoiceTitle",
+        "body": ["wx.chooseInvoiceTitle({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "选择用户的发票抬头"
+    },
+    "wx.checkIsSupportSoterAuthentication": {
+        "prefix": "wx-checkIsSupportSoterAuthentication",
+        "body": ["wx.checkIsSupportSoterAuthentication({",
+            "\tsuccess: (result)=>{${1}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "获取本机支持的SOTER生物认证方式"
+    },
+    "wx.startSoterAuthentication": {
+        "prefix": "wx-startSoterAuthentication",
+        "body": ["wx.startSoterAuthentication({",
+            "\trequestAuthModes:['fingerPrint'],",
+            "\tchallenge:'${1}',",
+            "\tauthContent:'${2}',",
+            "\tsuccess: (result)=>{${3}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "开始SOTER生物认证"
+    },
+    "wx.checkIsSoterEnrolledInDevice": {
+        "prefix": "wx-checkIsSoterEnrolledInDevice",
+        "body": ["wx.checkIsSoterEnrolledInDevice({",
+            "\tcheckAuthMode:{${1}},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "获取设备内是否录入如指纹等生物信息的接口"
     },
     "wx.getUpdateManager": {
-        "prefix": "wxgetUpdateManager",
+        "prefix": "wx-getUpdateManager",
         "body": ["${1:var updateManager = }wx.getUpdateManager();"],
         "description": "获取全局唯一的版本更新管理器，用于管理小程序更新。"
     },
     "updateManager.onCheckForUpdate": {
         "prefix": "updateManager-onCheckForUpdate",
-        "body": ["updateManager.onCheckForUpdate(${1:res} => {${2}});"],
+        "body": ["updateManager.onCheckForUpdate((result) => {${1}});"],
         "description": "当向微信后台请求完新版本信息，会进行回调"
     },
     "updateManager.onUpdateReady": {
         "prefix": "updateManager-onUpdateReady",
-        "body": ["updateManager.onUpdateReady(${1:res} => {${2}});"],
+        "body": ["updateManager.onUpdateReady((result) => {${1}});"],
         "description": "当新版本下载完成，会进行回调"
     },
     "updateManager.onUpdateFailed": {
         "prefix": "updateManager-onUpdateFailed",
-        "body": ["updateManager.onUpdateFailed(${1:res} => {${2}});"],
+        "body": ["updateManager.onUpdateFailed((result) => {${1}});"],
         "description": "当新版本下载失败，会进行回调"
     },
     "updateManager.applyUpdate": {
@@ -2137,20 +2595,69 @@
         "body": ["updateManager.applyUpdate();"],
         "description": "当新版本下载完成，调用该方法会强制当前小程序应用上新版本并重启"
     },
+    "wx.createWorker": {
+        "prefix": "wx-createWorker",
+        "body": ["${1:var worker = }wx.createWorker(${1});"],
+        "description": "创建一个Worker线程，并返回Worker实例，目前限制最多只能创建一个Worker，创建下一个Worker前请调用Worker.terminate。"
+    },
+    "worker.postMessage": {
+        "prefix": "worker-postMessage",
+        "body": ["worker.postMessage(${1});"],
+        "description": "向Worker线程发送的消息。"
+    },
+    "worker.onMessage": {
+        "prefix": "worker-onMessage",
+        "body": ["worker.onMessage((result) => {${1}});"],
+        "description": "监听Worker线程向当前线程发送的消息"
+    },
+    "worker.terminate": {
+        "prefix": "worker-terminate",
+        "body": ["worker.terminate();"],
+        "description": "结束当前Worker线程，仅限在主线程Worker实例上调用。"
+    },
+    "wx.reportMonitor": {
+        "prefix": "wx-reportMonitor",
+        "body": ["wx.reportMonitor(${1:name},${2:value});"],
+        "description": "自定义业务数据监控上报接口。"
+    },
+    "wx.setEnableDebug": {
+        "prefix": "wx-setEnableDebug",
+        "body": ["wx.setEnableDebug({",
+            "\tenableDebug:{${1:true}},",
+            "\tsuccess: (result)=>{${2}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "设置是否打开调试开关，此开关对正式版也能生效"
+    },
     "wx.getLogManager": {
-        "prefix": "wxgetLogManager",
-        "body": ["${1:var logManager = }wx.getLogManager();"],
+        "prefix": "wx-getLogManager",
+        "body": ["${1:var logger = }wx.getLogManager();"],
         "description": "获取日志管理器 logManager 对象。"
     },
-    "wx.createCanvasContext": {
-        "prefix": "wxcreateCanvasContext",
-        "body": [
-            "${1:var ctx = }wx.createCanvasContext(${2:canvas-id}, this);"
-        ],
-        "description": "创建 canvas 绘图上下文（指定 canvasId）。"
+    "logger.log": {
+        "prefix": "logger-log",
+        "body": ["logger.log(${1});"],
+        "description": "写log日志，可以提供任意个参数。"
+    },
+    "logger.info": {
+        "prefix": "logger-info",
+        "body": ["logger.info(${1});"],
+        "description": "写info日志，可以提供任意个参数。"
+    },
+    "logger.warn": {
+        "prefix": "logger-warn",
+        "body": ["logger.warn(${1});"],
+        "description": "写warn日志，可以提供任意个参数。"
+    },
+    "logger.debug": {
+        "prefix": "logger-debug",
+        "body": ["logger.debug(${1});"],
+        "description": "写debug日志，可以提供任意个参数。"
     },
     "wx.canvasToTempFilePath": {
-        "prefix": "wxcanvasToTempFilePath",
+        "prefix": "wx-canvasToTempFilePath",
         "body": [
             "wx.canvasToTempFilePath({",
             "\tx: ${1:0},",
@@ -2162,13 +2669,15 @@
             "\tcanvasId: ${7},",
             "\tfileType: ${8:png},",
             "\tquality: ${9:1.0},",
-            "\tsuccess: ${10:res} => {${11}}",
+            "\tsuccess: (result)=>{${10}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "}, this);"
         ],
         "description": "把当前画布指定区域的内容导出生成指定大小的图片，并返回文件路径。"
     },
     "wx.canvasGetImageData": {
-        "prefix": "wxcanvasGetImageData",
+        "prefix": "wx-canvasGetImageData",
         "body": [
             "wx.canvasGetImageData({",
             "\tcanvasId: ${1},",
@@ -2176,13 +2685,15 @@
             "\ty: ${3:0},",
             "\twidth: ${4},",
             "\theight: ${5},",
-            "\tsuccess: ${6:res} => {${7}}",
+            "\tsuccess: (result)=>{${6}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "}, this);"
         ],
         "description": "返回一个数组，用来描述 canvas 区域隐含的像素数据。"
     },
     "wx.canvasPutImageData": {
-        "prefix": "wxcanvasPutImageData",
+        "prefix": "wx-canvasPutImageData",
         "body": [
             "wx.canvasPutImageData({",
             "\tcanvasId: ${1},",
@@ -2191,307 +2702,316 @@
             "\ty: ${4},",
             "\twidth: ${5},",
             "\theight: ${6},",
-            "\tsuccess: () => {${7}}",
+            "\tsuccess: (result)=>{${7}},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
             "}, this);"
         ],
         "description": "将像素数据绘制到画布的方法。"
     },
-    "ctx.setFillStyle": {
-        "prefix": "ctx-setFillStyle",
-        "body": ["ctx.setFillStyle('${1}');"],
+    "wx.createCanvasContext": {
+        "prefix": "wx-createCanvasContext",
+        "body": [
+            "${1:var cvsCtx = }wx.createCanvasContext(${2:canvas-id}, this);"
+        ],
+        "description": "创建 canvas 绘图上下文（指定 canvasId）。"
+    },
+    "cvsCtx.setFillStyle": {
+        "prefix": "cvsCtx-setFillStyle",
+        "body": ["cvsCtx.setFillStyle('${1}');"],
         "description": "设置填充色。"
     },
-    "ctx.fillStyle": {
-        "prefix": "ctx-fillStyle",
-        "body": ["ctx.fillStyle = ${1};"],
+    "cvsCtx.fillStyle": {
+        "prefix": "cvsCtx-fillStyle",
+        "body": ["cvsCtx.fillStyle = ${1};"],
         "description": "设置填充色。基础库 1.9.90 起支持"
     },
-    "ctx.setStrokeStyle": {
-        "prefix": "ctx-setStrokeStyle",
-        "body": ["ctx.setStrokeStyle(${1});"],
+    "cvsCtx.setStrokeStyle": {
+        "prefix": "cvsCtx-setStrokeStyle",
+        "body": ["cvsCtx.setStrokeStyle(${1});"],
         "description": "设置边框颜色。"
     },
-    "ctx.strokeStyle": {
-        "prefix": "ctx-strokeStyle",
-        "body": ["ctx.strokeStyle = ${1};"],
+    "cvsCtx.strokeStyle": {
+        "prefix": "cvsCtx-strokeStyle",
+        "body": ["cvsCtx.strokeStyle = ${1};"],
         "description": "设置边框颜色。基础库 1.9.90 起支持"
     },
-    "ctx.setShadow": {
-        "prefix": "ctx-setShadow",
+    "cvsCtx.setShadow": {
+        "prefix": "cvsCtx-setShadow",
         "body": [
-            "ctx.setShadow(${1:offsetX}, ${2:offsetY}, ${3:blur}, ${4:color});"
+            "cvsCtx.setShadow(${1:offsetX}, ${2:offsetY}, ${3:blur}, ${4:color});"
         ],
         "description": "设置阴影样式。"
     },
-    "ctx.createLinearGradient": {
-        "prefix": "ctx-createLinearGradient",
+    "cvsCtx.createLinearGradient": {
+        "prefix": "cvsCtx-createLinearGradient",
         "body": [
-            "ctx.createLinearGradient(${1:x0}, ${2:y0}, ${3:x1}, ${4:y1});"
+            "cvsCtx.createLinearGradient(${1:x0}, ${2:y0}, ${3:x1}, ${4:y1});"
         ],
         "description": "创建一个线性的渐变颜色。需要使用 addColorStop() 来指定渐变点，至少要两个。"
     },
-    "ctx.createCircularGradient": {
-        "prefix": "ctx-createCircularGradient",
-        "body": ["ctx.createCircularGradient(${1:x}, ${2:y}, ${3:r});"],
+    "cvsCtx.createCircularGradient": {
+        "prefix": "cvsCtx-createCircularGradient",
+        "body": ["cvsCtx.createCircularGradient(${1:x}, ${2:y}, ${3:r});"],
         "description": "创建一个圆形的渐变颜色。需要使用 addColorStop() 来指定渐变点，至少要两个。"
     },
-    "ctx.addColorStop": {
-        "prefix": "ctx-addColorStop",
-        "body": ["ctx.addColorStop(${1:stop(0 ~ 1)}, ${2:color});"],
+    "cvsCtx.addColorStop": {
+        "prefix": "cvsCtx-addColorStop",
+        "body": ["cvsCtx.addColorStop(${1:stop(0 ~ 1)}, ${2:color});"],
         "description": "创建一个颜色的渐变点。"
     },
-    "ctx.setLineWidth": {
-        "prefix": "ctx-setLineWidth",
-        "body": ["ctx.setLineWidth(${1});"],
+    "cvsCtx.setLineWidth": {
+        "prefix": "cvsCtx-setLineWidth",
+        "body": ["cvsCtx.setLineWidth(${1});"],
         "description": "设置线条的宽度。"
     },
-    "ctx.lineWidth": {
-        "prefix": "ctx-lineWidth",
-        "body": ["ctx.lineWidth = ${1};"],
+    "cvsCtx.lineWidth": {
+        "prefix": "cvsCtx-lineWidth",
+        "body": ["cvsCtx.lineWidth = ${1};"],
         "description": "设置线条的宽度。基础库 1.9.90 起支持"
     },
-    "ctx.setLineCap": {
-        "prefix": "ctx-setLineCap",
-        "body": ["ctx.setLineCap('${1:butt}');"],
+    "cvsCtx.setLineCap": {
+        "prefix": "cvsCtx-setLineCap",
+        "body": ["cvsCtx.setLineCap('${1:butt}');"],
         "description": "设置线条的端点样式。"
     },
-    "ctx.lineCap": {
-        "prefix": "ctx-lineCap",
-        "body": ["ctx.lineCap = '${1:butt}';"],
+    "cvsCtx.lineCap": {
+        "prefix": "cvsCtx-lineCap",
+        "body": ["cvsCtx.lineCap = '${1:butt}';"],
         "description": "设置线条的端点样式。基础库 1.9.90 起支持"
     },
-    "ctx.setLineJoin": {
-        "prefix": "ctx-setLineJoin",
-        "body": ["ctx.setLineJoin('${1:bevel}');"],
+    "cvsCtx.setLineJoin": {
+        "prefix": "cvsCtx-setLineJoin",
+        "body": ["cvsCtx.setLineJoin('${1:bevel}');"],
         "description": "设置线条的交点样式。"
     },
-    "ctx.lineJoin": {
-        "prefix": "ctx-lineJoin",
-        "body": ["ctx.lineJoin = '${1:bevel}';"],
+    "cvsCtx.lineJoin": {
+        "prefix": "cvsCtx-lineJoin",
+        "body": ["cvsCtx.lineJoin = '${1:bevel}';"],
         "description": "设置线条的交点样式。基础库 1.9.90 起支持"
     },
-    "ctx.setLineDash": {
-        "prefix": "ctx-setLineDash",
-        "body": ["ctx.setLineDash([${1:pattern}], ${2:offset});"],
+    "cvsCtx.setLineDash": {
+        "prefix": "cvsCtx-setLineDash",
+        "body": ["cvsCtx.setLineDash([${1:pattern}], ${2:offset});"],
         "description": "设置线条的宽度。"
     },
-    "ctx.setMiterLimit": {
-        "prefix": "ctx-setMiterLimit",
-        "body": ["ctx.setMiterLimit(${1});"],
+    "cvsCtx.setMiterLimit": {
+        "prefix": "cvsCtx-setMiterLimit",
+        "body": ["cvsCtx.setMiterLimit(${1});"],
         "description": "设置最大斜接长度，斜接长度指的是在两条线交汇处内角和外角之间的距离。 当 setLineJoin() 为 miter 时才有效。"
     },
-    "ctx.rect": {
-        "prefix": "ctx-rect",
-        "body": ["ctx.rect(${1:x}, ${2:y}, ${3:width}, ${4:height});"],
+    "cvsCtx.rect": {
+        "prefix": "cvsCtx-rect",
+        "body": ["cvsCtx.rect(${1:x}, ${2:y}, ${3:width}, ${4:height});"],
         "description": "创建一个矩形。"
     },
-    "ctx.fillRect": {
-        "prefix": "ctx-fillRect",
-        "body": ["ctx.fillRect(${1:x}, ${2:y}, ${3:width}, ${4:height});"],
+    "cvsCtx.fillRect": {
+        "prefix": "cvsCtx-fillRect",
+        "body": ["cvsCtx.fillRect(${1:x}, ${2:y}, ${3:width}, ${4:height});"],
         "description": "填充一个矩形。"
     },
-    "ctx.strokeRect": {
-        "prefix": "ctx-strokeRect",
-        "body": ["ctx.strokeRect(${1:x}, ${2:y}, ${3:width}, ${4:height});"],
+    "cvsCtx.strokeRect": {
+        "prefix": "cvsCtx-strokeRect",
+        "body": ["cvsCtx.strokeRect(${1:x}, ${2:y}, ${3:width}, ${4:height});"],
         "description": "画一个矩形(非填充)。"
     },
-    "ctx.clearRect": {
-        "prefix": "ctx-clearRect",
-        "body": ["ctx.clearRect(${1:x}, ${2:y}, ${3:width}, ${4:height});"],
+    "cvsCtx.clearRect": {
+        "prefix": "cvsCtx-clearRect",
+        "body": ["cvsCtx.clearRect(${1:x}, ${2:y}, ${3:width}, ${4:height});"],
         "description": "清除画布上在该矩形区域内的内容。"
     },
-    "ctx.fill": {
-        "prefix": "ctx-fill",
-        "body": ["ctx.fill();"],
+    "cvsCtx.fill": {
+        "prefix": "cvsCtx-fill",
+        "body": ["cvsCtx.fill();"],
         "description": "对当前路径中的内容进行填充。"
     },
-    "ctx.stroke": {
-        "prefix": "ctx-stroke",
-        "body": ["ctx.stroke();"],
+    "cvsCtx.stroke": {
+        "prefix": "cvsCtx-stroke",
+        "body": ["cvsCtx.stroke();"],
         "description": "画出当前路径的边框。"
     },
-    "ctx.beginPath": {
-        "prefix": "ctx-beginPath",
-        "body": ["ctx.beginPath();"],
+    "cvsCtx.beginPath": {
+        "prefix": "cvsCtx-beginPath",
+        "body": ["cvsCtx.beginPath();"],
         "description": "开始创建一个路径，需要调用fill或者stroke才会使用路径进行填充或描边。"
     },
-    "ctx.closePath": {
-        "prefix": "ctx-closePath",
-        "body": ["ctx.closePath();"],
+    "cvsCtx.closePath": {
+        "prefix": "cvsCtx-closePath",
+        "body": ["cvsCtx.closePath();"],
         "description": "关闭一个路径"
     },
-    "ctx.moveTo": {
-        "prefix": "ctx-moveTo",
-        "body": ["ctx.moveTo(${1:x}, ${2:y});"],
+    "cvsCtx.moveTo": {
+        "prefix": "cvsCtx-moveTo",
+        "body": ["cvsCtx.moveTo(${1:x}, ${2:y});"],
         "description": "把路径移动到画布中的指定点，不创建线条。"
     },
-    "ctx.lineTo": {
-        "prefix": "ctx-lineTo",
-        "body": ["ctx.lineTo(${1:x}, ${2:y});"],
+    "cvsCtx.lineTo": {
+        "prefix": "cvsCtx-lineTo",
+        "body": ["cvsCtx.lineTo(${1:x}, ${2:y});"],
         "description": "lineTo 方法增加一个新点，然后创建一条从上次指定点到目标点的线。"
     },
-    "ctx.arc": {
-        "prefix": "ctx-arc",
+    "cvsCtx.arc": {
+        "prefix": "cvsCtx-arc",
         "body": [
-            "ctx.arc(${1:x}, ${2:y}, ${3:r}, ${4:sAngle}, ${5:eAngle}, ${6:false});"
+            "cvsCtx.arc(${1:x}, ${2:y}, ${3:r}, ${4:sAngle}, ${5:eAngle}, ${6:false});"
         ],
         "description": "画一条弧线。"
     },
-    "ctx.bezierCurveTo": {
-        "prefix": "ctx-bezierCurveTo",
+    "cvsCtx.bezierCurveTo": {
+        "prefix": "cvsCtx-bezierCurveTo",
         "body": [
-            "ctx.bezierCurveTo(${1:cp1x}, ${2:cp1y}, ${3:cp2x}, ${4:cp2y}, ${5:x}, ${6:y});"
+            "cvsCtx.bezierCurveTo(${1:cp1x}, ${2:cp1y}, ${3:cp2x}, ${4:cp2y}, ${5:x}, ${6:y});"
         ],
         "description": "创建三次方贝塞尔曲线路径。曲线的起始点为路径中前一个点。"
     },
-    "ctx.quadraticCurveTo": {
-        "prefix": "ctx-quadraticCurveTo",
-        "body": ["ctx.quadraticCurveTo(${1:cpx}, ${2:cpy}, ${3:x}, ${4:y});"],
+    "cvsCtx.quadraticCurveTo": {
+        "prefix": "cvsCtx-quadraticCurveTo",
+        "body": ["cvsCtx.quadraticCurveTo(${1:cpx}, ${2:cpy}, ${3:x}, ${4:y});"],
         "description": "创建二次贝塞尔曲线路径。曲线的起始点为路径中前一个点。"
     },
-    "ctx.scale": {
-        "prefix": "ctx-scale",
-        "body": ["ctx.scale(${1:scaleWidth}, ${2:scaleHeight});"],
+    "cvsCtx.scale": {
+        "prefix": "cvsCtx-scale",
+        "body": ["cvsCtx.scale(${1:scaleWidth}, ${2:scaleHeight});"],
         "description": "在调用scale方法后，之后创建的路径其横纵坐标会被缩放。多次调用scale，倍数会相乘。"
     },
-    "ctx.rotate": {
-        "prefix": "ctx-rotate",
-        "body": ["ctx.rotate(${1:degrees} * Math.PI/180);"],
+    "cvsCtx.rotate": {
+        "prefix": "cvsCtx-rotate",
+        "body": ["cvsCtx.rotate(${1:degrees} * Math.PI/180);"],
         "description": "以原点为中心，原点可以用 translate方法修改。顺时针旋转当前坐标轴。"
     },
-    "ctx.translate": {
-        "prefix": "ctx-translate",
-        "body": ["ctx.translate(${1:x}, ${2:y});"],
+    "cvsCtx.translate": {
+        "prefix": "cvsCtx-translate",
+        "body": ["cvsCtx.translate(${1:x}, ${2:y});"],
         "description": "对当前坐标系的原点(0, 0)进行变换，默认的坐标系原点为页面左上角。"
     },
-    "ctx.clip": {
-        "prefix": "ctx-clip",
-        "body": ["ctx.clip();"],
+    "cvsCtx.clip": {
+        "prefix": "cvsCtx-clip",
+        "body": ["cvsCtx.clip();"],
         "description": "从原始画布中剪切任意形状和尺寸。"
     },
-    "ctx.setFontSize": {
-        "prefix": "ctx-setFontSize",
-        "body": ["ctx.setFontSize(${1:20});"],
+    "cvsCtx.setFontSize": {
+        "prefix": "cvsCtx-setFontSize",
+        "body": ["cvsCtx.setFontSize(${1:20});"],
         "description": "设置字体的字号。"
     },
-    "ctx.fillText": {
-        "prefix": "ctx-fillText",
-        "body": ["ctx.fillText('${1:text}', ${2:x}, ${3:y});"],
+    "cvsCtx.fillText": {
+        "prefix": "cvsCtx-fillText",
+        "body": ["cvsCtx.fillText('${1:text}', ${2:x}, ${3:y});"],
         "description": "在画布上绘制被填充的文本。"
     },
-    "ctx.setTextAlign": {
-        "prefix": "ctx-setTextAlign",
-        "body": ["ctx.setTextAlign('${1:center}');"],
+    "cvsCtx.setTextAlign": {
+        "prefix": "cvsCtx-setTextAlign",
+        "body": ["cvsCtx.setTextAlign('${1:center}');"],
         "description": "用于设置文字的对齐"
     },
-    "ctx.textAlign": {
-        "prefix": "ctx-textAlign",
-        "body": ["ctx.textAlign = '${1:center}';"],
+    "cvsCtx.textAlign": {
+        "prefix": "cvsCtx-textAlign",
+        "body": ["cvsCtx.textAlign = '${1:center}';"],
         "description": "用于设置文字的对齐,基础库 1.9.90 起支持"
     },
-    "ctx.setTextBaseline": {
-        "prefix": "ctx-setTextBaseline",
-        "body": ["ctx.setTextBaseline('${1:middle}');"],
+    "cvsCtx.setTextBaseline": {
+        "prefix": "cvsCtx-setTextBaseline",
+        "body": ["cvsCtx.setTextBaseline('${1:middle}');"],
         "description": "用于设置文字的水平对齐"
     },
-    "ctx.textBaseline": {
-        "prefix": "ctx-textBaseline",
-        "body": ["ctx.textBaseline = '${1:middle}';"],
+    "cvsCtx.textBaseline": {
+        "prefix": "cvsCtx-textBaseline",
+        "body": ["cvsCtx.textBaseline = '${1:middle}';"],
         "description": "用于设置文字的水平对齐,基础库 1.9.90 起支持"
     },
-    "ctx.drawImage": {
-        "prefix": "ctx-drawImage",
+    "cvsCtx.drawImage": {
+        "prefix": "cvsCtx-drawImage",
         "body": [
-            "ctx.drawImage(${1:imageResource}, ${2:dx}, ${3:dy}, ${4:dWidth}, ${5:dHeight});"
+            "cvsCtx.drawImage(${1:imageResource}, ${2:dx}, ${3:dy}, ${4:dWidth}, ${5:dHeight});"
         ],
         "description": "绘制图像到画布。"
     },
-    "ctx.setGlobalAlpha": {
-        "prefix": "ctx-setGlobalAlpha",
-        "body": ["ctx.setGlobalAlpha(${1:1});"],
+    "cvsCtx.setGlobalAlpha": {
+        "prefix": "cvsCtx-setGlobalAlpha",
+        "body": ["cvsCtx.setGlobalAlpha(${1:1});"],
         "description": "设置全局画笔透明度。"
     },
-    "ctx.globalAlpha": {
-        "prefix": "ctx-globalAlpha",
-        "body": ["ctx.globalAlpha = ${1:1};"],
+    "cvsCtx.globalAlpha": {
+        "prefix": "cvsCtx-globalAlpha",
+        "body": ["cvsCtx.globalAlpha = ${1:1};"],
         "description": "设置全局画笔透明度。基础库 1.9.90 起支持"
     },
-    "ctx.save": {
-        "prefix": "ctx-save",
-        "body": ["ctx.save();"],
+    "cvsCtx.save": {
+        "prefix": "cvsCtx-save",
+        "body": ["cvsCtx.save();"],
         "description": "保存当前的绘图上下文。"
     },
-    "ctx.restore": {
-        "prefix": "ctx-restore",
-        "body": ["ctx.restore();"],
+    "cvsCtx.restore": {
+        "prefix": "cvsCtx-restore",
+        "body": ["cvsCtx.restore();"],
         "description": "恢复之前保存的绘图上下文。"
     },
-    "ctx.draw": {
-        "prefix": "ctx-draw",
-        "body": ["ctx.draw(${1:true}, ${2:callback});"],
+    "cvsCtx.draw": {
+        "prefix": "cvsCtx-draw",
+        "body": ["cvsCtx.draw(${1:true}, ${2:callback});"],
         "description": "将之前在绘图上下文中的描述（路径、变形、样式）画到 canvas 中"
     },
-    "ctx.measureText": {
-        "prefix": "ctx-measureText",
-        "body": ["${1:var metrics =}ctx.measureText(${2});"],
+    "cvsCtx.measureText": {
+        "prefix": "cvsCtx-measureText",
+        "body": ["${1:var metrics =}cvsCtx.measureText(${2});"],
         "description": "测量文本尺寸信息，目前仅返回文本宽度。同步接口。"
     },
-    "ctx.globalCompositeOperation": {
-        "prefix": "ctx-globalCompositeOperation",
-        "body": ["ctx.globalCompositeOperation = ${1};"],
+    "cvsCtx.globalCompositeOperation": {
+        "prefix": "cvsCtx-globalCompositeOperation",
+        "body": ["cvsCtx.globalCompositeOperation = ${1};"],
         "description": "该属性是设置要在绘制新形状时应用的合成操作的类型。"
     },
-    "ctx.arcTo": {
-        "prefix": "ctx-arcTo",
-        "body": ["ctx.arcTo(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:radius});"],
+    "cvsCtx.arcTo": {
+        "prefix": "cvsCtx-arcTo",
+        "body": ["cvsCtx.arcTo(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:radius});"],
         "description": "根据控制点和半径绘制圆弧路径。"
     },
-    "ctx.strokeText": {
-        "prefix": "ctx-strokeText",
-        "body": ["ctx.strokeText(${1:text}, ${2:x}, ${3:y});"],
+    "cvsCtx.strokeText": {
+        "prefix": "cvsCtx-strokeText",
+        "body": ["cvsCtx.strokeText(${1:text}, ${2:x}, ${3:y});"],
         "description": "给定的 (x, y) 位置绘制文本描边的方法"
     },
-    "ctx.lineDashOffset": {
-        "prefix": "ctx-lineDashOffset",
-        "body": ["ctx.lineDashOffset = ${1:value};"],
+    "cvsCtx.lineDashOffset": {
+        "prefix": "cvsCtx-lineDashOffset",
+        "body": ["cvsCtx.lineDashOffset = ${1:value};"],
         "description": "设置虚线偏移量的属性"
     },
-    "ctx.createPattern": {
-        "prefix": "ctx-createPattern",
-        "body": ["ctx.createPattern(${1:image}, ${2:repetition});"],
+    "cvsCtx.createPattern": {
+        "prefix": "cvsCtx-createPattern",
+        "body": ["cvsCtx.createPattern(${1:image}, ${2:repetition});"],
         "description": "对指定的图像创建模式的方法，可在指定的方向上重复元图像"
     },
-    "ctx.shadowBlur": {
-        "prefix": "ctx-shadowBlur",
-        "body": ["ctx.shadowBlur = ${1:value};"],
+    "cvsCtx.shadowBlur": {
+        "prefix": "cvsCtx-shadowBlur",
+        "body": ["cvsCtx.shadowBlur = ${1:value};"],
         "description": "设置阴影的模糊级别"
     },
-    "ctx.shadowColor": {
-        "prefix": "ctx-shadowColor",
-        "body": ["ctx.shadowColor = ${1:value};"],
+    "cvsCtx.shadowColor": {
+        "prefix": "cvsCtx-shadowColor",
+        "body": ["cvsCtx.shadowColor = ${1:value};"],
         "description": "设置阴影的颜色"
     },
-    "ctx.shadowOffsetX": {
-        "prefix": "ctx-shadowOffsetX",
-        "body": ["ctx.shadowOffsetX = ${1:value};"],
+    "cvsCtx.shadowOffsetX": {
+        "prefix": "cvsCtx-shadowOffsetX",
+        "body": ["cvsCtx.shadowOffsetX = ${1:value};"],
         "description": "设置阴影相对于形状在水平方向的偏移"
     },
-    "ctx.shadowOffsetY": {
-        "prefix": "ctx-shadowOffsetY",
-        "body": ["ctx.shadowOffsetY = ${1:value};"],
+    "cvsCtx.shadowOffsetY": {
+        "prefix": "cvsCtx-shadowOffsetY",
+        "body": ["cvsCtx.shadowOffsetY = ${1:value};"],
         "description": "设置阴影相对于形状在竖直方向的偏移"
     },
-    "ctx.font": {
-        "prefix": "ctx-font",
+    "cvsCtx.font": {
+        "prefix": "cvsCtx-font",
         "body": [
-            "ctx.font = '${1:style}, ${2:weight}, ${3:size}, ${4:family}';"
+            "cvsCtx.font = '${1:style}, ${2:weight}, ${3:size}, ${4:family}';"
         ],
         "description": "设置当前字体样式的属性"
     },
-    "ctx.setTransform": {
-        "prefix": "ctx-setTransform",
+    "cvsCtx.setTransform": {
+        "prefix": "cvsCtx-setTransform",
         "body": [
-            "ctx.setTransform(${scaleX}, ${skewX}, ${skewY}, ${scaleY}, ${translateX}, ${translateY});"
+            "cvsCtx.setTransform(${scaleX}, ${skewX}, ${skewY}, ${scaleY}, ${translateX}, ${translateY});"
         ],
         "description": "使用矩阵重新设置（覆盖）当前变换的方法"
     }

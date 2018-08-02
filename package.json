@@ -1,6 +1,5 @@
 {
 	"name": "wechat-snippet",
-	"displayName": "wechat snippet",
 	"description": "微信小程序代码辅助,自动完成",
 	"version": "0.1.0",
 	"publisher": "ChandZhang",
@@ -11,17 +10,41 @@
 		"Snippets"
 	],
 	"keywords": [
+		"miniapp",
+		"小程序",
 		"wx",
 		"wechat",
-		"wxapi",
-		"miniapp",
-		"小程序"
+		"wxapi"
 	],
 	"contributes": {
-		"snippets": [
+		"languages": [{
+				"id": "wxml",
+				"extensions": [
+					".wxml"
+				]
+			},
 			{
+				"id": "json",
+				"extensions": [
+					".json"
+				]
+			}
+		],
+		"snippets": [{
 				"language": "javascript",
-				"path": "./snippets/snippets.json"
+				"path": "./snippets/wxjs.json"
+			},
+			{
+				"language": "html",
+				"path": "./snippets/wxxml.json"
+			},
+			{
+				"language": "wxml",
+				"path": "./snippets/wxxml.json"
+			},
+			{
+				"language": "json",
+				"path": "./snippets/wxjson.json"
 			}
 		]
 	},
@@ -33,10 +56,5 @@
 		"email": "zhangcd@iiwol.com"
 	},
 	"icon": "assets/image/logo.png",
-	"license": "MIT License",
-	"__metadata": {
-		"id": "",
-		"publisherId": "",
-		"publisherDisplayName": "ChandZhang"
-	}
+	"license": "MIT License"
 }
