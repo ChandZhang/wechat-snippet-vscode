@@ -12,7 +12,8 @@
             "\t\"disableScroll\": false,",
             "\t\"onReachBottomDistance\": false",
             "}"
-        ]
+        ],
+		"description": "Page页面对应的JSON文件配置项"
     },
 	
 	"app-pages": {
@@ -21,7 +22,8 @@
             "\"pages\": [",
             "\t\"pages/index/index\"",
             "],"
-        ]
+        ],
+		"description": "App对应的JSON文件pages配置项"
     },
     "app-window": {
         "prefix": "window",
@@ -38,7 +40,8 @@
             "\t\"enablePullDownRefresh\": false,",
             "\t\"onReachBottomDistance\": 50",
             "},"
-        ]
+        ],
+		"description": "App对应的JSON文件window配置项"
     },
     
     "app-tabbar": {
@@ -59,7 +62,8 @@
             "\t\t}",
             "\t]",
             "},"
-        ]
+        ],
+		"description": "App对应的JSON文件tabbar配置项"
     },
     "app-network": {
         "prefix": "networktimeout",
@@ -70,12 +74,35 @@
             "\t\"uploadFile\": ${3:10000},",
             "\t\"downloadFile\": ${4:10000}",
             "},"
-        ]
+        ],
+		"description": "App对应的JSON文件networktimeout配置项,超时设置"
     },
     "app-debug": {
         "prefix": "debug",
         "body": [
             "\"debug\":true,"
-        ]
-    }
+        ],
+		"description": "App对应的JSON文件debug配置项,是否是调试模式"
+    },
+    "app-functionalPages": {
+        "prefix": "functionalPages",
+        "body": [
+            "\"functionalPages\":false,"
+        ],
+		"description": "App对应的JSON文件debug配置项,是否启用插件功能页"
+    },
+    "app-subPackages": {
+        "prefix": "subPackages",
+        "body": [
+            "\"subPackages\":[],"
+        ],
+		"description": "App对应的JSON文件debug配置项,分包结构配置"
+    },
+    "app-workers": {
+        "prefix": "workers",
+        "body": [
+            "\"workers\":\"\","
+        ],
+		"description": "App对应的JSON文件debug配置项,Worker代码放置的目录"
+    }	
 }

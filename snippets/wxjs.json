@@ -90,6 +90,20 @@
         ],
         "description": "Component对象及其生命周期函数和回调函数"
     },
+	"getCurrentPages": {
+        "prefix": "getCurrentPages",
+        "body": [
+            "${1:var curPages = } getCurrentPages();"
+        ],
+        "description": "获取当前页面栈"
+    },
+	"getApp": {
+        "prefix": "getApp",
+        "body": [
+            "${1:var appInst = } getApp();"
+        ],
+        "description": "获取小程序实例"
+    },
     "wx.request": {
         "prefix": "wx-request",
         "body": [
