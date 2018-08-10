@@ -3,7 +3,7 @@
         "prefix": "view",
         "body": [
             "<view class=\"${1}\" hover-class=\"${2:none}\" hover-stop-propagation=\"${3:false}\">",
-            "${4}",
+            "\t${4}",
             "</view>"
         ],
         "description": "基础的视图容器"
@@ -12,9 +12,9 @@
         "prefix": "scroll-view",
         "body": [
             "<scroll-view class=\"${1}\" scroll-x=\"${2:false}\" scroll-y=\"${3:false}\" upper-threshold=\"${4:50}\" lower-threshold=\"${5:50}\" ",
-            "scroll-top=\"${6:0}\" scroll-left=\"${7:0}\" scroll-into-view=\"${8}\" scroll-with-animation=\"${9:false}\" enable-back-to-top=\"${10:false}\" ",
-            "bindscrolltoupper=\"${11}\" bindscrolltolower=\"${12}\" bindscroll=\"${13}\">",
-            "${14}",
+            "\tscroll-top=\"${6:0}\" scroll-left=\"${7:0}\" scroll-into-view=\"${8}\" scroll-with-animation=\"${9:false}\" enable-back-to-top=\"${10:false}\" ",
+            "\tbindscrolltoupper=\"${11}\" bindscrolltolower=\"${12}\" bindscroll=\"${13}\">",
+            "\t${14}",
             "</scroll-view>"
         ],
         "description": "可滚动视图区域"
@@ -23,25 +23,27 @@
         "prefix": "swiper",
         "body": [
             "<swiper class=\"${1}\" indicator-dots=\"${2:false}\" indicator-color=\"${3:rgba(0,0,0,.3)}\" autoplay=\"${4:false}\" ",
-            "${5:current=\"0\"} ${6:current-item-id=\"\"} interval=\"${7:5000}\" duration=\"${8:1000}\" circular=\"${9:false}\" vertical=\"${10:false}\" ",
+            "\t${5:current=\"0\"} ${6:current-item-id=\"\"} interval=\"${7:5000}\" duration=\"${8:1000}\" circular=\"${9:false}\" vertical=\"${10:false}\" ",
             "previous-margin=\"${10:0px}\" next-margin\"${11:0px}\" display-multiple-items=\"${12:1}\" skip-hidden-item-layout=\"${13:false}\" bindchange=\"${14}\" ${15:bindanimationfinish=\"\"}>",
-            "${16}",
+            "\t${16}",
             "</swiper>"
         ],
         "description": "滑块视图容器"
     },
     "swiper-item": {
         "prefix": "swiper-item",
-        "body": ["<swiper-item class=\"${1}\" item-id=\"${2}\">",
-            "${3}",
+        "body": [
+			"<swiper-item class=\"${1}\" item-id=\"${2}\">",
+            "\t${3}",
             "</swiper-item>"
         ],
         "description": "仅可放置在<swiper/>组件中，宽高自动设置为100%"
     },
     "movable-area": {
         "prefix": "movable-area",
-        "body": ["<movable-area class=\"${1}\" scale-area=\"${2:false}\">",
-            "${3}",
+        "body": [
+			"<movable-area class=\"${1}\" scale-area=\"${2:false}\">",
+            "\t${3}",
             "</movable-area>"
         ],
         "description": "movable-view 的可移动区域"
@@ -50,9 +52,9 @@
         "prefix": "movable-view",
         "body": [
             "<movable-view class=\"${1}\" direction=\"${2:none}\" inertia=\"${3:false}\" out-of-bounds=\"${4:false}\" x=\"${5}\" y=\"${6}\" damping=\"${7:20}\" ",
-            "friction=\"${8:2}\" disabled=\"${9:false}\" scale=\"${10:false}\" scale-min=\"${11:0.5}\" scale-max=\"${12:10}\" scale-value=\"${13:1}\" ",
-            "animation=\"${14:true}\" bindchange=\"${15}\" bindscale=\"${16}\">",
-            "${17}",
+            "\tfriction=\"${8:2}\" disabled=\"${9:false}\" scale=\"${10:false}\" scale-min=\"${11:0.5}\" scale-max=\"${12:10}\" scale-value=\"${13:1}\" ",
+            "\tanimation=\"${14:true}\" bindchange=\"${15}\" bindscale=\"${16}\">",
+            "\t${17}",
             "</movable-view>"
         ],
         "description": "可移动的视图容器 在页面中可以拖拽滑动"
@@ -61,15 +63,16 @@
         "prefix": "cover-view",
         "body": [
             "<cover-view class=\"${1}\" scroll-top=\"${2:0}\">",
-            "${3}",
+            "\t${3}",
             "</cover-view>"
         ],
         "description": "覆盖在原生组件之上的文本视图，可覆盖的原生组件包括map、video、canvas、camera、live-player、live-pusher，只支持嵌套cover-view、cover-image，可在cover-view中使用button"
     },
     "cover-image": {
         "prefix": "cover-image",
-        "body": ["<cover-image class=\"${1}\" src=\"${2}\" bindload=\"${3}\" binderror=\"${4}\">",
-            "${5}",
+        "body": [
+			"<cover-image class=\"${1}\" src=\"${2}\" bindload=\"${3}\" binderror=\"${4}\">",
+            "\t${5}",
             "</cover-image>"
         ],
         "description": "覆盖在原生组件之上的图片视图，可覆盖的原生组件同cover-view，支持嵌套在cover-view里"
@@ -78,7 +81,7 @@
         "prefix": "icon",
         "body": [
             "<icon class=\"${1}\" type=\"${2:success|success_no_circle|info|warn|waiting|cancel|download|search|clear}\" size=\"${3:23}\" color=\"${4}\">",
-            "${5}",
+            "\t${5}",
             "</icon>"
         ],
         "description": "图标"
@@ -87,7 +90,7 @@
         "prefix": "text",
         "body": [
             "<text class=\"${1}\" selectable=\"${2:false}\" space=\"${3:false}\" decode=\"${4:false}\">",
-            "${5}",
+            "\t${5}",
             "</text>"
         ],
         "description": "文本"
@@ -96,7 +99,7 @@
         "prefix": "rich-text",
         "body": [
             "<rich-text class=\"${1}\" nodes=\"{{$2}}\">",
-            "${3}",
+            "\t${3}",
             "</rich-text>"
         ],
         "description": "富文本"
@@ -105,8 +108,8 @@
         "prefix": "progress",
         "body": [
             "<progress class=\"${1}\" percent=\"${2}\" show-info=\"${3:false}\" stroke-width=\"${4:6}\" color=\"${5:#09BB07}\" ",
-            "active=\"${6:false}\" backgroundColor=\"${7}\" activeColor=\"${8}\" active-mode=\"${9:backwards}\">",
-            "${10}",
+            "\tactive=\"${6:false}\" backgroundColor=\"${7}\" activeColor=\"${8}\" active-mode=\"${9:backwards}\">",
+            "\t${10}",
             "</progress>"
         ],
         "description": "进度条"
@@ -115,9 +118,9 @@
         "prefix": "button",
         "body": [
             "<button class=\"${1}\" size=\"${2:default}\" type=\"${1:default}\" plain=\"${2:false}\" disabled=\"${3:false}\" loading=\"${4:false}\" ",
-            " hover-class=\"${5:button-hover}\" hover-stop-propagation=\"${6:false}\" ",
-            "${7: form-type=\"submit|reset\"} ${8:open-type=\"contact|share|getUserInfo|openSetting|feedback\"} >",
-            "${9}",
+            "\thover-class=\"${5:button-hover}\" hover-stop-propagation=\"${6:false}\" ",
+            "\t${7: form-type=\"submit|reset\"} ${8:open-type=\"contact|share|getUserInfo|openSetting|feedback\"} >",
+            "\t${9}",
             "</button>"
         ],
         "description": "按钮"
@@ -126,7 +129,7 @@
         "prefix": "checkbox-group",
         "body": [
             "<checkbox-group bindchange=\"${1}\">",
-            "${2}",
+            "\t${2}",
             "</checkbox-group>"
         ],
         "description": "多项选择器 内部由多个checkbox组成"
@@ -135,7 +138,7 @@
         "prefix": "checkbox",
         "body": [
             "<checkbox class=\"${1}\" value=\"${2}\" disabled=\"${3:false}\" checked=\"${4:false}\" color=\"${5}\">",
-            "${6}",
+            "\t${6}",
             "</checkbox>"
         ],
         "description": "多选项目"
@@ -144,7 +147,7 @@
         "prefix": "form",
         "body": [
             "<form class=\"${1}\" report-submit=\"${2:false}\" bindsubmit=\"${3}\" bindreset=\"${4}\">",
-            "${5}",
+            "\t${5}",
             "</form>"
         ],
         "description": "表单。将组件内的用户输入的<switch/> <input/> <checkbox/> <slider/> <radio/> <picker/> 提交"
@@ -153,8 +156,8 @@
         "prefix": "input",
         "body": [
             "<input class=\"${1}\" value=\"${2}\" type=\"${3:text|number|idcard|digit|time|date}\" password=\"${4:false}\" placeholder=\"${5}\" placeholder-style=\"${6}\" placeholder-class=\"${7:input-placeholder}\" ",
-            "disabled=\"${8:false}\" maxlength=\"${9:140}\" focus=\"${10:false}\" bindinput=\"${11}\" bindfocus=\"${12}\" bindblur=\"${13}\" bindconfirm=\"${14}\">",
-            "${15}",
+            "\tdisabled=\"${8:false}\" maxlength=\"${9:140}\" focus=\"${10:false}\" bindinput=\"${11}\" bindfocus=\"${12}\" bindblur=\"${13}\" bindconfirm=\"${14}\">",
+            "\t${15}",
             "</input>"
         ],
         "description": "输入框"
@@ -163,7 +166,7 @@
         "prefix": "label",
         "body": [
             "<label class=\"${1}\" for=\"${2}\">",
-            "${3}",
+            "\t${3}",
             "</label>"
         ],
         "description": "用来改进表单组件的可用性，使用for属性找到对应的id，或者将控件放在该标签下，当点击时，就会触发对应的控件。for优先级高于内部控件，内部有多个控件的时候默认触发第一个控件。目前可以绑定的控件有<button/>、<checkbox/>、<radio/>、<switch/>"
@@ -172,8 +175,8 @@
         "prefix": "picker",
         "body": [
             "<picker class=\"${1}\" mode=\"${2:selector|multiSelector|time|date|region}\" range=\"${3:[]}\" ${4:range-key=\"\"} value=\"${5}\" ",
-            "disabled=\"${6:false}\" bindchange=\"${7}\" bindcancel=\"${8}\">",
-            "${9}",
+            "\tdisabled=\"${6:false}\" bindchange=\"${7}\" bindcancel=\"${8}\">",
+            "\t${9}",
             "</picker>"
         ],
         "description": "滚动选择器。现支持三种选择器 通过mode来区分，分别是普通选择器、时间选择器、日期选择器。默认是普通选择器"
@@ -182,7 +185,7 @@
         "prefix": "picker-view",
         "body": [
             "<picker-view value=\"${1}\" indicator-class=\"${2}\" indicator-style=\"${3}\" mask-class=\"${4}\" mask-style=\"${5}\" bindchange=\"${6}\">",
-            "${7}",
+            "\t${7}",
             "</picker-view>"
         ],
         "description": "嵌入页面的滚动选择器"
@@ -191,7 +194,7 @@
         "prefix": "picker-view-column",
         "body": [
             "<picker-view-column>",
-            "${1}",
+            "\t${1}",
             "</picker-view-column>"
         ],
         "description": "仅可放置于<picker-view />中 其孩子节点的高度会自动设置成与picker-view的选中框的高度一致"
@@ -200,7 +203,7 @@
         "prefix": "radio-group",
         "body": [
             "<radio-group bindchange=\"${1}\">",
-            "${2}",
+            "\t${2}",
             "</radio-group>"
         ],
         "description": "单项选择器 内部由多个<radio/>组成"
@@ -209,7 +212,7 @@
         "prefix": "radio",
         "body": [
             "<radio class=\"${1}\" value=\"${2}\" disabled=\"${3:false}\" checked=\"${4:false}\" color=\"${5}\">",
-            "${6}",
+            "\t${6}",
             "</radio>"
         ],
         "description": "单选项目"
@@ -218,8 +221,8 @@
         "prefix": "slider",
         "body": [
             "<slider class=\"${1}\" min=\"${2:0}\" max=\"${3:100}\" step=\"${4:1}\" disabled=\"${5:false}\" value=\"${6}\" show-value=\"${7:false}\" ",
-            "backgroundColor=\"${8:#e9e9e9}\" block-size=\"${9:28}\" block-color=\"${10:#ffffff}\" bindchanging=\"${11}\" bindchange=\"${12}\">",
-            "${13}",
+            "\tbackgroundColor=\"${8:#e9e9e9}\" block-size=\"${9:28}\" block-color=\"${10:#ffffff}\" bindchanging=\"${11}\" bindchange=\"${12}\">",
+            "\t${13}",
             "</slider>"
         ],
         "description": "滑动选择器"
@@ -228,17 +231,18 @@
         "prefix": "switch",
         "body": [
             "<switch class=\"${1}\" checked=\"${2:false}\" type=\"${3:switch|checkbox}\" bindchange=\"${4}\">",
-            "${5}",
+            "\t${5}",
             "</switch>"
         ],
         "description": "开关选择器"
     },
     "textarea": {
         "prefix": "textarea",
-        "body": ["<textarea class=\"${1}\" value=\"${2}\" placeholder=\"${3}\" placeholder-style=\"${4}\" placeholder-class=\"${5:textarea-placeholder}\" ",
-            "disabled=\"${6:false}\" maxlength=\"${7:140}\" auto-focus=\"${8:false}\" focus=\"${9:false}\" auto-height=\"${10}\" ",
-            "bindinput=\"${11}\" bindfocus=\"${12}\" bindblur=\"${13}\" bindconfirm=\"${14}\" bindlinechange=\"%{15}\">",
-            "${16}",
+        "body": [
+			"<textarea class=\"${1}\" value=\"${2}\" placeholder=\"${3}\" placeholder-style=\"${4}\" placeholder-class=\"${5:textarea-placeholder}\" ",
+            "\tdisabled=\"${6:false}\" maxlength=\"${7:140}\" auto-focus=\"${8:false}\" focus=\"${9:false}\" auto-height=\"${10}\" ",
+            "\tbindinput=\"${11}\" bindfocus=\"${12}\" bindblur=\"${13}\" bindconfirm=\"${14}\" bindlinechange=\"%{15}\">",
+            "\t${16}",
             "</textarea>"
         ],
         "description": "多行输入框"
@@ -247,7 +251,7 @@
         "prefix": "navigator",
         "body": [
             "<navigator class=\"${1}\" target=\"${2}\" url=\"${3}\" hover-class=\"${4:navigator-hover}\" open-type=\"${5:navigate}\">",
-            "${6}",
+            "\t${6}",
             "</navigator>"
         ],
         "description": "页面链接"
@@ -256,8 +260,8 @@
         "prefix": "audio",
         "body": [
             "<audio id=\"${1}\" src=\"${2}\" loop=\"${3:false}\" controls=\"${4:false}\" poster=\"${5}\" name=\"${6:未知音频}\" author=\"${7:未知作者}\" ",
-            "binderror=\"${8}\" bindplay=\"${9}\" bindpause=\"${10}\" bindtimeupdate=\"${11}\" bindended=\"${12}\">",
-            "${13}",
+            "\tbinderror=\"${8}\" bindplay=\"${9}\" bindpause=\"${10}\" bindtimeupdate=\"${11}\" bindended=\"${12}\">",
+            "\t${13}",
             "</audio>"
         ],
         "description": "音频。1.6.0 版本开始，该组件不再维护"
@@ -266,7 +270,7 @@
         "prefix": "image",
         "body": [
             "<image class=\"${1}\" src=\"${2}\" mode=\"${3:aspectFit|aspectFill|widthFix}\" lazy-load=\"${4:false}\" binderror=\"${5}\" bindload=\"${6}\">",
-            "${7}",
+            "\t${7}",
             "</image>"
         ],
         "description": "图片。默认宽度300px、高度225px。image组件中二维码/小程序码图片不支持长按识别"
@@ -275,8 +279,8 @@
         "prefix": "video",
         "body": [
             "<video class=\"${1}\" src=\"${2}\" initial-time=\"${3:0}\" autoplay=\"${4:false}\" loop=\"${5:false}\" muted=\"${6:false}\" direction=\"${7:0}\" ",
-            "bindplay=\"${8}\" bindpause=\"${9}\" bindended=\"${10}\" bindtimeupdate=\"${11}\" bindwaiting=\"${12}\" binderror=\"${13}\">",
-            "${14}",
+            "\tbindplay=\"${8}\" bindpause=\"${9}\" bindended=\"${10}\" bindtimeupdate=\"${11}\" bindwaiting=\"${12}\" binderror=\"${13}\">",
+            "\t${14}",
             "</video>"
         ],
         "description": "视频。默认宽度300px、高度225px，可通过wxss设置宽高"
@@ -285,8 +289,8 @@
         "prefix": "camera",
         "body": [
             "<camera class=\"${1}\" mode=\"${2:normal}\" device-position=\"${3:back}\" flash=\"${4:auto}\" scan-area=\"[${5},${6},${7},${8}]\" ",
-            "bindstop=\"${9}\" bindscancode=\"${10}\" binderror=\"${11}\">",
-            "${12}",
+            "\tbindstop=\"${9}\" bindscancode=\"${10}\" binderror=\"${11}\">",
+            "\t${12}",
             "</camera>"
         ],
         "description": "系统相机。需要用户授权 scope.camera"
@@ -295,9 +299,9 @@
         "prefix": "live-player",
         "body": [
             "<live-player class=\"${1}\" src=\"${2}\" mode=\"${3:live}\" autoplay=\"${4:false}\" muted=\"${5:false}\" orientation=\"${6:vertical}\" ",
-            "object-fit=\"${7:contain}\" min-cache=\"${8:1}\" max-cache=\"${9:3}\" ",
-            "bindstatechange=\"${10}\" bindfullscreenchange=\"${11}\" bindnetstatus=\"${12}\">",
-            "${13}",
+            "\tobject-fit=\"${7:contain}\" min-cache=\"${8:1}\" max-cache=\"${9:3}\" ",
+            "\tbindstatechange=\"${10}\" bindfullscreenchange=\"${11}\" bindnetstatus=\"${12}\">",
+            "\t${13}",
             "</live-player>"
         ],
         "description": "实时音视频播放。默认宽度300px、高度225px，可通过wxss设置宽高"
@@ -306,9 +310,9 @@
         "prefix": "live-pusher",
         "body": [
             "<live-pusher class=\"${1}\" url=\"${2}\" mode=\"${3:SD|HD|FHD|RTC}\" autopush=\"${4:false}\" muted=\"${5:false}\" enable-camera=\"${6:true}\" ",
-            "auto-focus=\"${7:true}\" orientation=\"${8:vertical}\" beauty=\"${9:0}\" whiteness=\"${10:0}\" min-bitrate=\"${11:200}\" max-bitrate=\"${12:1000}\" ",
-            "bindstatechange=\"${13}\" bindnetstatus=\"${14}\" binderror=\"${15}\">",
-            "${16}",
+            "\tauto-focus=\"${7:true}\" orientation=\"${8:vertical}\" beauty=\"${9:0}\" whiteness=\"${10:0}\" min-bitrate=\"${11:200}\" max-bitrate=\"${12:1000}\" ",
+            "\tbindstatechange=\"${13}\" bindnetstatus=\"${14}\" binderror=\"${15}\">",
+            "\t${16}",
             "</live-pusher>"
         ],
         "description": "实时音视频录制。需要用户授权 scope.camera、scope.record。默认宽度为100%、无默认高度，请通过wxss设置宽高"
@@ -318,7 +322,7 @@
         "prefix": "map",
         "body": [
             "<map id=\"${1}\" class=\"2\" longitude=\"${3}\" latitude=\"${4}\" scale=\"${5:16}\" markers=\"${6}\" ",
-            "bindregionchange=\"${7}\" bindtap=\"${8}\" bindupdated=\"${9}\" ></map>"
+            "\tbindregionchange=\"${7}\" bindtap=\"${8}\" bindupdated=\"${9}\" ></map>"
         ],
         "description": "地图"
     },
@@ -326,7 +330,7 @@
         "prefix": "canvas",
         "body": [
             "<canvas class=\"${1}\" canvas-id=\"${2}\" bindtouchstart=\"${3}\" bindtouchmove=\"${4}\" bindtouchend=\"${5}\" ",
-            "bindtouchcancel=\"${6}\" bindlongtap=\"${7}\" binderror=\"${8}\"></canvas>"
+            "\tbindtouchcancel=\"${6}\" bindlongtap=\"${7}\" binderror=\"${8}\"></canvas>"
         ],
         "description": "画布"
     },
@@ -348,7 +352,7 @@
     "block": {
         "prefix": "block",
         "body": ["<block wx:for=\"{{${1:items}}}\">",
-            "${2}",
+            "\t${2}",
             "</block>"
         ],
         "description": "block标签，不是组件，只是包装元素，不会在页面中做任何渲染，只接受控制属性"

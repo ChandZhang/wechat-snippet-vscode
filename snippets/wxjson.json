@@ -21,7 +21,8 @@
         "body": [
             "\"pages\": [",
             "\t\"pages/index/index\"",
-            "],"
+            "],",
+			"${1}"
         ],
 		"description": "App对应的JSON文件pages配置项"
     },
@@ -37,9 +38,10 @@
             "\t\"backgroundTextStyle\": \"dark|light\",",
             "\t\"backgroundColorTop\": \"#ffffff\",",
             "\t\"backgroundColorBottom\": \"#ffffff\",",
-            "\t\"enablePullDownRefresh\": false,",
+            "\t\"enablePullDownRefresh\": true,",
             "\t\"onReachBottomDistance\": 50",
-            "},"
+            "},",
+			"${1}"
         ],
 		"description": "App对应的JSON文件window配置项"
     },
@@ -48,20 +50,22 @@
         "prefix": "tabbar",
         "body": [
             "\"tabBar\": {",
-            "\t\"color\": \"\",",
-            "\t\"selectedColor\": \"\",",
-            "\t\"backgroundColor\": \"\",",
+            "\t\"color\": \"${1}\",",
+            "\t\"selectedColor\": \"${2}\",",
+            "\t\"backgroundColor\": \"${3}\",",
             "\t\"position\": \"bottom\",",
             "\t\"borderStyle\": \"black\",",
             "\t\"list\": [",
             "\t\t{",
-            "\t\t\t\"pagePath\": \"\",",
-            "\t\t\t\"text\": \"\",",
-            "\t\t\t\"iconPath\": \"\",",
-            "\t\t\t\"selectedIconPath\": \"\"",
+            "\t\t\t\"pagePath\": \"${4}\",",
+            "\t\t\t\"text\": \"${5}\",",
+            "\t\t\t\"iconPath\": \"${6}\",",
+            "\t\t\t\"selectedIconPath\": \"${7}\"",
             "\t\t}",
             "\t]",
-            "},"
+            "},",
+			"${8}"
+			
         ],
 		"description": "App对应的JSON文件tabbar配置项"
     },
@@ -73,7 +77,8 @@
             "\t\"connectSocket\": ${2:10000},",
             "\t\"uploadFile\": ${3:10000},",
             "\t\"downloadFile\": ${4:10000}",
-            "},"
+            "},",
+			"${5}"
         ],
 		"description": "App对应的JSON文件networktimeout配置项,超时设置"
     },

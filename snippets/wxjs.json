@@ -40,7 +40,8 @@
             "\t\t${3}",
             "\t},",
             "\tonShow: ()=>{",
-            "\r\n\t},",
+            "\t\t${4}",
+            "\t},",
             "\tonHide: ()=>{",
             "\r\n\t},",
             "\tonUnload: ()=>{",
@@ -75,7 +76,8 @@
             "\tdata: {",
             "\r\n\t},",
             "\tmethods: {",
-            "\r\n\t},",
+            "\t\t${5}",
+            "\t},",
             "\tcreated: ()=>{",
             "\r\n\t},",
             "\tattached: ()=>{",
@@ -90,17 +92,19 @@
         ],
         "description": "Component对象及其生命周期函数和回调函数"
     },
-	"getCurrentPages": {
+    "getCurrentPages": {
         "prefix": "getCurrentPages",
         "body": [
-            "${1:var curPages = } getCurrentPages();"
+            "${1:var curPages = } getCurrentPages();",
+            "${2}"
         ],
         "description": "获取当前页面栈"
     },
-	"getApp": {
+    "getApp": {
         "prefix": "getApp",
         "body": [
-            "${1:var appInst = } getApp();"
+            "${1:var appInst = } getApp();",
+            "${2}"
         ],
         "description": "获取小程序实例"
     },
@@ -114,7 +118,9 @@
             "\tmethod: '${4:GET}',",
             "\tdataType: '${5:json}',",
             "\tresponseType: '${6:text}',",
-            "\tsuccess: (result)=>{${7}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${7}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -129,7 +135,9 @@
             "\tfilePath: ${2},",
             "\tname: ${3},",
             "\tformData: {${4}},",
-            "\tsuccess: (result)=>{${5}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${5}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -141,7 +149,9 @@
         "body": [
             "wx.downloadFile({",
             "\turl: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -156,7 +166,9 @@
             "\theader: {${3:'content-type':'application/json'}},",
             "\tmethod: '${4:GET}',",
             "\tprotocols: [${5}],",
-            "\tsuccess: ()=>{${6}},",
+            "\tsuccess: ()=>{",
+            "\t\t${6}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -165,12 +177,18 @@
     },
     "wx.onSocketOpen": {
         "prefix": "wx-onSocketOpen",
-        "body": ["wx.onSocketOpen(${1:result} => {${2}});"],
+        "body": ["wx.onSocketOpen(${1:result} => {",
+            "\t${2}",
+            "});"
+        ],
         "description": "监听WebSocket连接打开事件。"
     },
     "wx.onSocketError": {
         "prefix": "wx-onSocketError",
-        "body": ["wx.onSocketError(${1:result} => {${2}});"],
+        "body": ["wx.onSocketError(${1:result} => {",
+            "\t${2}",
+            "});"
+        ],
         "description": "监听WebSocket错误。"
     },
     "wx.sendSocketMessage": {
@@ -178,7 +196,9 @@
         "body": [
             "wx.sendSocketMessage({",
             "\tdata: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -196,7 +216,9 @@
             "wx.closeSocket({",
             "\tcode: ${1:1000},",
             "\treason: '${2}',",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -205,7 +227,10 @@
     },
     "wx.onSocketClose": {
         "prefix": "wx-onSocketClose",
-        "body": ["wx.onSocketClose((${1:result})=>{${2}});"],
+        "body": ["wx.onSocketClose((${1:result})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "监听WebSocket关闭。"
     },
     "sockTask.send": {
@@ -213,7 +238,9 @@
         "body": [
             "sockTask.send({",
             "\tdata: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -226,7 +253,9 @@
             "sockTask.close({",
             "\tcode: ${1},",
             "\treason: ${2},",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -235,22 +264,38 @@
     },
     "sockTask.onOpen": {
         "prefix": "sockTask-onOpen",
-        "body": ["sockTask.onOpen(${1:result} => {${2}});"],
+        "body": [
+            "sockTask.onOpen(${1:result} => {",
+            "\t${2}",
+            "});"
+        ],
         "description": "监听WebSocket连接打开事件。"
     },
     "sockTask.onClose": {
         "prefix": "sockTask-onClose",
-        "body": ["sockTask.onClose(${1:result} => {${2}});"],
+        "body": [
+            "sockTask.onClose(${1:result} => {",
+            "\t${2}",
+            "});"
+        ],
         "description": "监听 WebSocket 连接关闭事件。"
     },
     "sockTask.onError": {
         "prefix": "sockTask-onError",
-        "body": ["sockTask.onError(${1:result} => {${2}});"],
+        "body": [
+            "sockTask.onError(${1:result} => {",
+            "\t${2}",
+            "});"
+        ],
         "description": "监听 WebSocket 错误。"
     },
     "sockTask.onMessage": {
         "prefix": "sockTask-onMessage",
-        "body": ["sockTask.onMessage(${1:result} => {${2}});"],
+        "body": [
+            "sockTask.onMessage(${1:result} => {",
+            "\t${2}",
+            "});"
+        ],
         "description": "监听WebSocket接受到服务器的消息事件。"
     },
     "wx.chooseImage": {
@@ -260,7 +305,9 @@
             "\tcount: ${1:9},",
             "\tsizeType: ${2:['original','compressed']},",
             "\tsourceType: ${3:['album','camera']},",
-            "\tsuccess: (result)=>{${4}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${4}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -273,7 +320,9 @@
             "wx.previewImage({",
             "\tcurrent: '${1}',",
             "\turls: [${2}],",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -285,7 +334,9 @@
         "body": [
             "wx.getImageInfo({",
             "\tsrc: ${1},",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -297,7 +348,9 @@
         "body": [
             "wx.saveImageToPhotosAlbum({",
             "\tfilePath: ${1},",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -307,7 +360,9 @@
     "wx.startRecord": {
         "prefix": "wx-startRecord",
         "body": ["wx.startRecord({",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -353,27 +408,42 @@
     },
     "recordManager.onStart": {
         "prefix": "recordManager-onStart",
-        "body": ["recordManager.onStart((${1})=>{${2}});"],
+        "body": ["recordManager.onStart((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "录音开始事件"
     },
     "recordManager.onPause": {
         "prefix": "recordManager-onPause",
-        "body": ["recordManager.onPause((${1})=>{${2}});"],
+        "body": ["recordManager.onPause((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "录音暂停事件"
     },
     "recordManager.onStop": {
         "prefix": "recordManager-onStop",
-        "body": ["recordManager.onStop((${1:result})=>{${2}});"],
+        "body": ["recordManager.onStop((${1:result})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "录音停止事件，会回调文件地址"
     },
     "recordManager.onFrameRecorded": {
         "prefix": "recordManager-onFrameRecorded",
-        "body": ["recordManager.onFrameRecorded((${1:result})=>{${2}});"],
+        "body": ["recordManager.onFrameRecorded((${1:result})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "已录制完指定帧大小的文件，会回调录音分片结果数据"
     },
     "recordManager.onError": {
         "prefix": "recordManager-onError",
-        "body": ["recordManager.onError((${1:errMsg})=>{${2}});"],
+        "body": ["recordManager.onError((${1:errMsg})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "录音错误事件, 会回调错误信息"
     },
     "wx.playVoice": {
@@ -381,7 +451,9 @@
         "body": ["wx.playVoice({",
             "\tfilePath: '${1}',",
             "\tduration: ${2:60},",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -401,7 +473,9 @@
     "wx.getBackgroundAudioPlayerState": {
         "prefix": "wx-getBackgroundAudioPlayerState",
         "body": ["wx.getBackgroundAudioPlayerState({",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -414,7 +488,9 @@
             "\tdataUrl: '${1}',",
             "\ttitle: '${2}',",
             "\tcoverImgUrl: '${3}',",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${4}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -430,7 +506,9 @@
         "prefix": "wx-seekBackgroundAudio",
         "body": ["wx.seekBackgroundAudio({",
             "\tposition: '${1}',",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -493,52 +571,82 @@
     },
     "backAudioManager.onCanplay": {
         "prefix": "backAudioManager-onCanplay",
-        "body": ["backAudioManager.onCanplay(${1:()=>{}});"],
+        "body": ["backAudioManager.onCanplay(${1:()=>{",
+            "\t\t${2}",
+            "\t}});"
+        ],
         "description": "背景音频进入可以播放状态，但不保证后面可以流畅播放"
     },
     "backAudioManager.onPlay": {
         "prefix": "backAudioManager-onPlay",
-        "body": ["backAudioManager.onPlay(()=>{${1}});"],
+        "body": ["backAudioManager.onPlay(()=>{",
+            "\t${1}",
+            "});"
+        ],
         "description": "背景音频播放事件"
     },
     "backAudioManager.onPause": {
         "prefix": "backAudioManager-onPause",
-        "body": ["backAudioManager.onPause(()=>{${1}});"],
+        "body": ["backAudioManager.onPause(()=>{",
+            "\t${1}",
+            "});"
+        ],
         "description": "背景音频暂停事件"
     },
     "backAudioManager.onStop": {
         "prefix": "backAudioManager-onStop",
-        "body": ["backAudioManager.onStop(()=>{${1}});"],
+        "body": ["backAudioManager.onStop(()=>{",
+            "\t${1}",
+            "});"
+        ],
         "description": "背景音频停止事件"
     },
     "backAudioManager.onEnded": {
         "prefix": "backAudioManager-onEnded",
-        "body": ["backAudioManager.onEnded(()=>{${1}});"],
+        "body": ["backAudioManager.onEnded(()=>{",
+            "\t${1}",
+            "});"
+        ],
         "description": "背景音频自然播放结束事件"
     },
     "backAudioManager.onTimeUpdate": {
         "prefix": "backAudioManager-onTimeUpdate",
-        "body": ["backAudioManager.onTimeUpdate((${1})=>{${2}});"],
+        "body": ["backAudioManager.onTimeUpdate((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "背景音频播放进度更新事件"
     },
     "backAudioManager.onPrev": {
         "prefix": "backAudioManager-onPrev",
-        "body": ["backAudioManager.onPrev((${1})=>{${2}});"],
+        "body": ["backAudioManager.onPrev((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "用户在系统音乐播放面板点击上一曲事件（iOS only）"
     },
     "backAudioManager.onNext": {
         "prefix": "backAudioManager-onNext",
-        "body": ["backAudioManager.onNext((${1})=>{${2}});"],
+        "body": ["backAudioManager.onNext((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "用户在系统音乐播放面板点击下一曲事件（iOS only）"
     },
     "backAudioManager.onError": {
         "prefix": "backAudioManager-onError",
-        "body": ["backAudioManager.onError((${1:errMsg})=>{${2}});"],
+        "body": ["backAudioManager.onError((${1:errMsg})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "背景音频播放错误事件"
     },
     "backAudioManager.onWaiting": {
         "prefix": "backAudioManager-onWaiting",
-        "body": ["backAudioManager.onWaiting((${1})=>{${2}});"],
+        "body": ["backAudioManager.onWaiting((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频加载中事件，当音频因为数据不足，需要停下来加载时会触发"
     },
     "wx.createAudioContext": {
@@ -609,99 +717,155 @@
     },
     "innerAudioContext.onPlay": {
         "prefix": "innerAudioContext-onPlay",
-        "body": ["innerAudioContext.onPlay((${1})=>{${2}});"],
+        "body": ["innerAudioContext.onPlay((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频播放事件"
     },
     "innerAudioContext.onPause": {
         "prefix": "innerAudioContext-onPause",
-        "body": ["innerAudioContext.onPause((${1})=>{${2}});"],
+        "body": ["innerAudioContext.onPause((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频暂停播放事件"
     },
     "innerAudioContext.onStop": {
         "prefix": "innerAudioContext-onStop",
-        "body": ["innerAudioContext.onStop((${1})=>{${2}});"],
+        "body": ["innerAudioContext.onStop((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频停止播放事件"
     },
     "innerAudioContext.onEnded": {
         "prefix": "innerAudioContext-onEnded",
-        "body": ["innerAudioContext.onEnded((${1})=>{${2}});"],
+        "body": ["innerAudioContext.onEnded((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频自然播放结束事件"
     },
     "innerAudioContext.onTimeUpdate": {
         "prefix": "innerAudioContext-onTimeUpdate",
-        "body": ["innerAudioContext.onTimeUpdate((${1})=>{${2}});"],
+        "body": ["innerAudioContext.onTimeUpdate((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频播放进度更新事件"
     },
     "innerAudioContext.onError": {
         "prefix": "innerAudioContext-onError",
-        "body": ["innerAudioContext.onError((${1:errMsg})=>{${2}});"],
+        "body": ["innerAudioContext.onError((${1:errMsg})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频播放错误事件"
     },
     "innerAudioContext.onWaiting": {
         "prefix": "innerAudioContext-onWaiting",
-        "body": ["innerAudioContext.onWaiting((${1})=>{${2}});"],
+        "body": ["innerAudioContext.onWaiting((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频加载中事件，当音频因为数据不足，需要停下来加载时会触发"
     },
     "innerAudioContext.onSeeking": {
         "prefix": "innerAudioContext-onSeeking",
-        "body": ["innerAudioContext.onSeeking((${1})=>{${2}});"],
+        "body": ["innerAudioContext.onSeeking((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频进行seek操作事件"
     },
     "innerAudioContext.onSeeked": {
         "prefix": "innerAudioContext-onSeeked",
-        "body": ["innerAudioContext.onSeeked((${1})=>{${2}});"],
+        "body": ["innerAudioContext.onSeeked((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "音频完成seek操作事件"
     },
 
     "innerAudioContext.offCanplay": {
         "prefix": "innerAudioContext-offCanplay",
-        "body": ["innerAudioContext.offCanplay((${1})=>{${2}});"],
+        "body": ["innerAudioContext.offCanplay((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "取消监听onCanplay事件"
     },
     "innerAudioContext.offPlay": {
         "prefix": "innerAudioContext-offPlay",
-        "body": ["innerAudioContext.offPlay((${1})=>{${2}});"],
+        "body": ["innerAudioContext.offPlay((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "取消监听onPlay事件"
     },
     "innerAudioContext.offStop": {
         "prefix": "innerAudioContext-offStop",
-        "body": ["innerAudioContext.offStop((${1})=>{${2}});"],
+        "body": ["innerAudioContext.offStop((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "取消监听onStop事件"
     },
     "innerAudioContext.offEnded": {
         "prefix": "innerAudioContext-offEnded",
-        "body": ["innerAudioContext.offEnded((${1})=>{${2}});"],
+        "body": ["innerAudioContext.offEnded((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "取消监听onEnded事件"
     },
     "innerAudioContext.offTimeUpdate": {
         "prefix": "innerAudioContext-offTimeUpdate",
-        "body": ["innerAudioContext.offTimeUpdate((${1})=>{${2}});"],
+        "body": ["innerAudioContext.offTimeUpdate((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "取消监听onTimeUpdate事件"
     },
     "innerAudioContext.offError": {
         "prefix": "innerAudioContext-offError",
-        "body": ["innerAudioContext.offError((${1})=>{${2}});"],
+        "body": ["innerAudioContext.offError((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "取消监听onError事件"
     },
     "innerAudioContext.offWaiting": {
         "prefix": "innerAudioContext-offWaiting",
-        "body": ["innerAudioContext.offWaiting((${1})=>{${2}});"],
+        "body": ["innerAudioContext.offWaiting((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "取消监听onWaiting事件"
     },
     "innerAudioContext.offSeeking": {
         "prefix": "innerAudioContext-offSeeking",
-        "body": ["innerAudioContext.offSeeking((${1})=>{${2}});"],
+        "body": ["innerAudioContext.offSeeking((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "取消监听onSeeking事件"
     },
     "innerAudioContext.offSeeked": {
         "prefix": "innerAudioContext-offSeeked",
-        "body": ["innerAudioContext.offSeeked((${1})=>{${2}});"],
+        "body": ["innerAudioContext.offSeeked((${1})=>{",
+            "\t${2}",
+            "});"
+        ],
         "description": "取消监听onSeeked事件"
     },
     "wx.getAvailableAudioSources": {
         "prefix": "wx-getAvailableAudioSources",
         "body": ["wx.getAvailableAudioSources({",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -716,7 +880,9 @@
             "\tsourceType:['album', 'camera'],",
             "\tcompressed: ${1:true},",
             "\tmaxDuration:${2:15},",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -728,7 +894,9 @@
         "body": [
             "wx.saveVideoToPhotosAlbum({",
             "\tfilePath: '${1}',",
-            "\tsuccess: (result)=>{},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -815,7 +983,9 @@
         "body": [
             "cameraContext.takePhoto({",
             "\tquality: ${1:normal},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -826,10 +996,14 @@
         "prefix": "cameraContext-startRecord",
         "body": [
             "cameraContext.startRecord({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
-            "\ttimeoutCallback: (result)=>{${2}},",
+            "\ttimeoutCallback: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "});"
         ],
         "description": "开始录像"
@@ -838,7 +1012,9 @@
         "prefix": "cameraContext-stopRecord",
         "body": [
             "cameraContext.stopRecord({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -857,16 +1033,21 @@
     "livePlayerContext.play": {
         "prefix": "livePlayerContext-play",
         "body": ["livePlayerContext.play({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
-            "\tcomplete: ()=>{}", "});"
+            "\tcomplete: ()=>{}",
+            "});"
         ],
         "description": "播放"
     },
     "livePlayerContext.stop": {
         "prefix": "livePlayerContext-stop",
         "body": ["livePlayerContext.stop({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -876,7 +1057,9 @@
     "livePlayerContext.mute": {
         "prefix": "livePlayerContext-mute",
         "body": ["livePlayerContext.mute({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -886,7 +1069,9 @@
     "livePlayerContext.pause": {
         "prefix": "livePlayerContext-pause",
         "body": ["livePlayerContext.pause({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -896,7 +1081,9 @@
     "livePlayerContext.resume": {
         "prefix": "livePlayerContext-resume",
         "body": ["livePlayerContext.resume({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -908,7 +1095,9 @@
         "body": [
             "livePlayerContext.requestFullScreen({",
             "\tdirection: ${1:0},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -919,7 +1108,9 @@
         "prefix": "livePlayerContext-exitFullScreen",
         "body": [
             "livePlayerContext.exitFullScreen({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -936,7 +1127,9 @@
     "livePusherContext.play": {
         "prefix": "livePusherContext-play",
         "body": ["livePusherContext.play({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -946,7 +1139,9 @@
     "livePusherContext.stop": {
         "prefix": "livePusherContext-stop",
         "body": ["livePusherContext.stop({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -956,7 +1151,9 @@
     "livePusherContext.pause": {
         "prefix": "livePusherContext-pause",
         "body": ["livePusherContext.pause({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -966,7 +1163,9 @@
     "livePusherContext.resume": {
         "prefix": "livePusherContext-resume",
         "body": ["livePusherContext.resume({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -977,7 +1176,9 @@
         "prefix": "livePusherContext-switchCamera",
         "body": [
             "livePusherContext.switchCamera({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -988,7 +1189,9 @@
         "prefix": "livePusherContext-snapshot",
         "body": [
             "livePusherContext.snapshot({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -999,7 +1202,9 @@
         "prefix": "livePusherContext-toggleTorch",
         "body": [
             "livePusherContext.toggleTorch({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1017,7 +1222,9 @@
             "\t\tweight: '${4:normal}',",
             "\t\tvariant: '${5:normal}'",
             "\t},",
-            "\tsuccess: (result)=>{${6}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${6}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1029,7 +1236,9 @@
         "body": [
             "wx.saveFile({",
             "\ttempFilePath: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1040,7 +1249,9 @@
         "prefix": "wx-getSavedFileList",
         "body": [
             "wx.getSavedFileList({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1052,7 +1263,9 @@
         "body": [
             "wx.getSavedFileInfo({",
             "\tfilePath: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1064,7 +1277,9 @@
         "body": [
             "wx.removeSavedFile({",
             "\tfilePath: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1077,7 +1292,9 @@
             "wx.openDocument({",
             "\tfilePath: ${1},",
             "\tfileType: ${2:'docx'},",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1090,7 +1307,9 @@
             "wx.setStorage({",
             "\tkey: '${1:key}',",
             "\tdata: ${2:data},",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1107,7 +1326,9 @@
         "body": [
             "wx.getStorage({",
             "\tkey: '${1:key}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1122,7 +1343,9 @@
     "wx.getStorageInfo": {
         "prefix": "wx-getStorageInfo",
         "body": ["wx.getStorageInfo({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1138,7 +1361,9 @@
         "prefix": "wx-removeStorage",
         "body": ["wx.removeStorage({",
             "\tkey: '${1:key},'",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1166,7 +1391,9 @@
             "wx.getLocation({",
             "\ttype: '${1:wgs84}',",
             "\taltitude: ${2:false},",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1176,7 +1403,9 @@
     "wx.chooseLocation": {
         "prefix": "wx-chooseLocation",
         "body": ["wx.chooseLocation({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1192,7 +1421,9 @@
             "\tscale: ${3:18},",
             "\tname: '${4}',",
             "\taddress: '${5}',",
-            "\tsuccess: (result)=>{${6}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${6}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1210,7 +1441,9 @@
         "prefix": "mapContext-getCenterLocation",
         "body": [
             "mapContext.getCenterLocation({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1259,7 +1492,9 @@
         "prefix": "mapContext-getRegion",
         "body": [
             "mapContext.getRegion({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1270,7 +1505,9 @@
         "prefix": "mapContext-getScale",
         "body": [
             "mapContext.getScale({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1280,7 +1517,9 @@
     "wx.getSystemInfo": {
         "prefix": "wx-getSystemInfo",
         "body": ["wx.getSystemInfo({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1299,13 +1538,20 @@
     },
     "wx.onMemoryWarning": {
         "prefix": "wx-onMemoryWarning",
-        "body": ["wx.onMemoryWarning((result) => {${1}});"],
+        "body": [
+            "wx.onMemoryWarning((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听内存不足的告警事件，Android下有告警等级划分，只有LOW和CRITICAL会回调开发者；iOS无等级划分"
     },
     "wx.getNetworkType": {
         "prefix": "wx-getNetworkType",
-        "body": ["wx.getNetworkType({",
-            "\tsuccess: (result)=>{${1}},",
+        "body": [
+            "wx.getNetworkType({",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1314,12 +1560,20 @@
     },
     "wx.onNetworkStatusChange": {
         "prefix": "wx-onNetworkStatusChange",
-        "body": ["wx.onNetworkStatusChange((result) => {${1}});"],
+        "body": [
+            "wx.onNetworkStatusChange((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听网络状态变化。"
     },
     "wx.onAccelerometerChange": {
         "prefix": "wx-onAccelerometerChange",
-        "body": ["wx.onAccelerometerChange((result) => {${1}});"],
+        "body": [
+            "wx.onAccelerometerChange((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听加速度数据，频率：5次/秒，接口调用后会自动开始监听，可使用 wx.stopAccelerometer 停止监听。"
     },
     "wx.startAccelerometer": {
@@ -1327,7 +1581,9 @@
         "body": [
             "wx.startAccelerometer({",
             "\tinterval: '${1:normal}',",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1336,8 +1592,11 @@
     },
     "wx.stopAccelerometer": {
         "prefix": "wx-stopAccelerometer",
-        "body": ["wx.stopAccelerometer({",
-            "\tsuccess: (result)=>{${1}},",
+        "body": [
+            "wx.stopAccelerometer({",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1346,13 +1605,20 @@
     },
     "wx.onCompassChange": {
         "prefix": "wx-onCompassChange",
-        "body": ["wx.onCompassChange((result) => {${1}});"],
+        "body": [
+            "wx.onCompassChange((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听罗盘数据，频率：5次/秒，接口调用后会自动开始监听，可使用wx.stopCompass停止监听。"
     },
     "wx.startCompass": {
         "prefix": "wx-startCompass",
-        "body": ["wx.startCompass({",
-            "\tsuccess: (result)=>{${1}},",
+        "body": [
+            "wx.startCompass({",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1361,8 +1627,11 @@
     },
     "wx.stopCompass": {
         "prefix": "wx-stopCompass",
-        "body": ["wx.stopCompass({",
-            "\tsuccess: (result)=>{${1}},",
+        "body": [
+            "wx.stopCompass({",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1374,7 +1643,9 @@
         "body": [
             "wx.makePhoneCall({",
             "\tphoneNumber: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1387,7 +1658,9 @@
             "wx.scanCode({",
             "\tonlyFromCamera: ${1:false},",
             "\tscanType: ['${2:qrCode}','${3:barCode}','${4:datamatrix}','${5:pdf417}'],",
-            "\tsuccess: (result)=>{${6}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${6}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1399,7 +1672,9 @@
         "body": [
             "wx.setClipboardData({",
             "\tdata: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1410,7 +1685,9 @@
         "prefix": "wx-getClipboardData",
         "body": [
             "wx.getClipboardData({",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1419,8 +1696,11 @@
     },
     "wx.openBluetoothAdapter": {
         "prefix": "wx-openBluetoothAdapter",
-        "body": ["wx.openBluetoothAdapter({",
-            "\tsuccess: (result)=>{${1}},",
+        "body": [
+            "wx.openBluetoothAdapter({",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t,",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1429,8 +1709,11 @@
     },
     "wx.closeBluetoothAdapter": {
         "prefix": "wx-closeBluetoothAdapter",
-        "body": ["wx.closeBluetoothAdapter({",
-            "\tsuccess: (result)=>{${1}},",
+        "body": [
+            "wx.closeBluetoothAdapter({",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1441,7 +1724,9 @@
         "prefix": "wx-getBluetoothAdapterState",
         "body": [
             "wx.getBluetoothAdapterState({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1450,7 +1735,11 @@
     },
     "wx.onBluetoothAdapterStateChange": {
         "prefix": "wx-onBluetoothAdapterStateChange",
-        "body": ["wx.onBluetoothAdapterStateChange((result) => {${1}});"],
+        "body": [
+            "wx.onBluetoothAdapterStateChange((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听蓝牙适配器状态变化事件"
     },
     "wx.startBluetoothDevicesDiscovery": {
@@ -1460,7 +1749,9 @@
             "\tservices:[${1}]",
             "\tallowDuplicatesKey:${2:false}",
             "\tinterval:${3:0}",
-            "\tsuccess: (result)=>{${4}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${4}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1471,7 +1762,9 @@
         "prefix": "wx-stopBluetoothDevicesDiscovery",
         "body": [
             "wx.stopBluetoothDevicesDiscovery({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1482,7 +1775,9 @@
         "prefix": "wx-getBluetoothDevices",
         "body": [
             "wx.getBluetoothDevices({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1491,7 +1786,11 @@
     },
     "wx.onBluetoothDeviceFound": {
         "prefix": "wx-onBluetoothDeviceFound",
-        "body": ["wx.onBluetoothDeviceFound((result) => {${1}});"],
+        "body": [
+            "wx.onBluetoothDeviceFound((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听寻找到新设备的事件"
     },
     "wx.getConnectedBluetoothDevices": {
@@ -1499,7 +1798,9 @@
         "body": [
             "wx.getConnectedBluetoothDevices({",
             "\tservices: [${1}],",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1511,7 +1812,9 @@
         "body": [
             "wx.createBLEConnection({",
             "\tdeviceId: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1523,7 +1826,9 @@
         "body": [
             "wx.closeBLEConnection({",
             "\tdeviceId: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1532,7 +1837,11 @@
     },
     "wx.onBLEConnectionStateChange": {
         "prefix": "wx-onBLEConnectionStateChange",
-        "body": ["wx.onBLEConnectionStateChange((result) => {${1}});"],
+        "body": [
+            "wx.onBLEConnectionStateChange((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听低功耗蓝牙连接状态的改变事件，包括开发者主动连接或断开连接，设备丢失，连接异常断开等等"
     },
     "wx.getBLEDeviceServices": {
@@ -1540,7 +1849,9 @@
         "body": [
             "wx.getBLEDeviceServices({",
             "\tdeviceId: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1553,7 +1864,9 @@
             "wx.getBLEDeviceCharacteristics({",
             "\tdeviceId: ${1},",
             "\tservices: ${2},",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1567,7 +1880,9 @@
             "\tdeviceId: ${1},",
             "\tservices: ${2},",
             "\tcharacteristicId: ${3},",
-            "\tsuccess: (result)=>{${4}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${4}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1582,7 +1897,9 @@
             "\tservices: ${2},",
             "\tcharacteristicId: ${3},",
             "\tvalue: ${4:<ArrayBuffer类型>},",
-            "\tsuccess: (result)=>{${5}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${5}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1598,7 +1915,9 @@
             "\tcharacteristicId: ${3},",
             "\tstate: ${4:true},",
             "\tvalue: ${5:<ArrayBuffer类型>},",
-            "\tsuccess: (result)=>{${6}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${6}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1607,7 +1926,11 @@
     },
     "wx.onBLECharacteristicValueChange": {
         "prefix": "wx-onBLECharacteristicValueChange",
-        "body": ["wx.onBLECharacteristicValueChange((result) => {${1}});"],
+        "body": [
+            "wx.onBLECharacteristicValueChange((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听低功耗蓝牙设备的特征值变化。必须先启用notify接口才能接收到设备推送的notification。"
     },
     "wx.startBeaconDiscovery": {
@@ -1615,7 +1938,9 @@
         "body": [
             "wx.startBeaconDiscovery({",
             "\tuuids: [${1}],",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1625,7 +1950,9 @@
     "wx.stopBeaconDiscovery": {
         "prefix": "wx-stopBeaconDiscovery",
         "body": ["wx.stopBeaconDiscovery({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1635,7 +1962,9 @@
     "wx.getBeacons": {
         "prefix": "wx-getBeacons",
         "body": ["wx.getBeacons({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1644,19 +1973,28 @@
     },
     "wx.onBeaconUpdate": {
         "prefix": "wx-onBeaconUpdate",
-        "body": ["wx.onBeaconUpdate((result) => {${1}});"],
+        "body": [
+            "wx.onBeaconUpdate((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听 iBeacon 设备的更新事件"
     },
     "wx.onBeaconServiceChange": {
         "prefix": "wx-onBeaconServiceChange",
-        "body": ["wx.onBeaconServiceChange((result) => {${1}});"],
+        "body": ["wx.onBeaconServiceChange((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听 iBeacon 服务的状态变化"
     },
     "wx.setScreenBrightness": {
         "prefix": "wx-setScreenBrightness",
         "body": ["wx.setScreenBrightness({",
             "\tvalue: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1667,7 +2005,9 @@
         "prefix": "wx-getScreenBrightness",
         "body": [
             "wx.getScreenBrightness({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1676,8 +2016,11 @@
     },
     "wx.vibrateLong": {
         "prefix": "wx-vibrateLong",
-        "body": ["wx.vibrateLong({",
-            "\tsuccess: (result)=>{${1}},",
+        "body": [
+            "wx.vibrateLong({",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1687,7 +2030,9 @@
     "wx.vibrateShort": {
         "prefix": "wx-vibrateShort",
         "body": ["wx.vibrateShort({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1698,7 +2043,9 @@
         "prefix": "wx-setKeepScreenOn",
         "body": ["wx.setKeepScreenOn({",
             "\tkeepScreenOn: ${1:true},",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1707,7 +2054,10 @@
     },
     "wx.onUserCaptureScreen": {
         "prefix": "wx-onUserCaptureScreen",
-        "body": ["wx.onUserCaptureScreen((result)=>{${1}});"],
+        "body": ["wx.onUserCaptureScreen((result)=>{",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听用户主动截屏事件，用户使用系统截屏按键截屏时触发此事件"
     },
     "wx.addPhoneContact": {
@@ -1722,7 +2072,9 @@
             "\tmobilePhoneNumber: ${6},",
             "\tweChatNumber: ${7},",
             "\temail: ${8},",
-            "\tsuccess: (result)=>{${9}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${9}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1732,7 +2084,9 @@
     "wx.getHCEState": {
         "prefix": "wx-getHCEState",
         "body": ["wx.getHCEState({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1744,7 +2098,9 @@
         "body": [
             "wx.startHCE({",
             "\taid_list: [${1}],",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1754,7 +2110,9 @@
     "wx.stopHCE": {
         "prefix": "wx-stopHCE",
         "body": ["wx.stopHCE({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1763,7 +2121,10 @@
     },
     "wx.onHCEMessage": {
         "prefix": "wx-onHCEMessage",
-        "body": ["wx.onHCEMessage((result) => {${2}});"],
+        "body": ["wx.onHCEMessage((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听 NFC 设备的消息回调，并在回调中处理。"
     },
     "wx.sendHCEMessage": {
@@ -1771,7 +2132,9 @@
         "body": [
             "wx.sendHCEMessage({",
             "\tdata: ${1:<ArrayBuffer类型>},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1781,7 +2144,9 @@
     "wx.startWifi": {
         "prefix": "wx-startWifi",
         "body": ["wx.startWifi({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1791,7 +2156,9 @@
     "wx.stopWifi": {
         "prefix": "wx-stopWifi",
         "body": ["wx.stopWifi({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1805,7 +2172,9 @@
             "\tSSID: ${1},",
             "\tBSSID: ${2},",
             "\tpassword: ${3},",
-            "\tsuccess: (result)=>{${4}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${4}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1815,7 +2184,9 @@
     "wx.getWifiList": {
         "prefix": "wx-getWifiList",
         "body": ["wx.getWifiList({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1824,7 +2195,10 @@
     },
     "wx.onGetWifiList": {
         "prefix": "wx-onGetWifiList",
-        "body": ["wx.onGetWifiList((result) => {${1}});"],
+        "body": ["wx.onGetWifiList((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听在获取到Wi-Fi列表数据时的事件，在回调中将返回wifiList。"
     },
     "wx.setWifiList": {
@@ -1838,7 +2212,9 @@
             "\t\t\tpassword: ${3}",
             "\t\t}",
             "\t],",
-            "\tsuccess: (result)=>{${4}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${4}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1847,14 +2223,19 @@
     },
     "wx.onWifiConnected": {
         "prefix": "wx-onWifiConnected",
-        "body": ["wx.onWifiConnected((result) => {${1}});"],
+        "body": ["wx.onWifiConnected((result) => {",
+            "\t${1}",
+            "});"
+        ],
         "description": "监听连接上Wi-Fi的事件。"
     },
     "wx.getConnectedWifi": {
         "prefix": "wx-getConnectedWifi",
         "body": [
             "wx.getConnectedWifi({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1870,7 +2251,9 @@
             "\timage: '${3}',",
             "\tduration: ${4:1500},",
             "\tmask: ${5:false},",
-            "\tsuccess: (result)=>{${6}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${6}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1883,7 +2266,9 @@
             "wx.showLoading({",
             "\ttitle: ${1},",
             "\tmask: ${2:true},",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1912,7 +2297,9 @@
             "\tconfirmText: '${6:确定}',",
             "\tconfirmColor: '${7:#3CC51F}',",
             "\tsuccess: (result) => {",
-            "\t\t${8:if(result.confirm){${9}}}",
+            "\t\t${8:if(result.confirm){",
+            "\t\t\t${9}",
+            "\t\t}}",
             "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
@@ -1926,7 +2313,9 @@
             "wx.showActionSheet({",
             "\titemList: [${1}],",
             "\titemColor: '${2:#000000}',",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1937,7 +2326,9 @@
         "prefix": "wx-setTopBarText",
         "body": ["wx.setTopBarText({",
             "\ttext: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1948,7 +2339,9 @@
         "prefix": "wx-setNavigationBarTitle",
         "body": ["wx.setNavigationBarTitle({",
             "\ttitle: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1975,7 +2368,9 @@
             "\t\tduration: ${3:0},",
             "\t\ttimingFunc: '${4:linear}'",
             "\t},",
-            "\tsuccess: (result)=>{${5}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${5}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1988,7 +2383,9 @@
             "wx.setTabBarBadge({",
             "\tindex: ${1},",
             "\ttext: '${2}',",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -1999,7 +2396,9 @@
         "prefix": "wx-removeTabBarBadge",
         "body": ["wx.removeTabBarBadge({",
             "\tindex: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2010,7 +2409,9 @@
         "prefix": "wx-showTabBarRedDot",
         "body": ["wx.showTabBarRedDot({",
             "\tindex: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2021,7 +2422,9 @@
         "prefix": "wx-hideTabBarRedDot",
         "body": ["wx.hideTabBarRedDot({",
             "\tindex: ${1},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2036,7 +2439,9 @@
             "\tselectedColor: '${2:#1AAD16}',",
             "\tbackgroundColor: '${3:#e3e3e3}',",
             "\tborderStyle: '${4:black}',",
-            "\tsuccess: (result)=>{${5}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2051,7 +2456,9 @@
             "\ttext: ${2},",
             "\ticonPath: ${3},",
             "\tselectedIconPath: ${4},",
-            "\tsuccess: (result)=>{${5}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${5}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2062,7 +2469,9 @@
         "prefix": "wx-showTabBar",
         "body": ["wx.showTabBar({",
             "\tanimation: ${1:false},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2073,7 +2482,9 @@
         "prefix": "wx-hideTabBar",
         "body": ["wx.hideTabBar({",
             "\tanimation: ${1:false},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2103,7 +2514,9 @@
         "prefix": "wx-navigateTo",
         "body": ["wx.navigateTo({",
             "\turl: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2114,7 +2527,9 @@
         "prefix": "wx-redirectTo",
         "body": ["wx.redirectTo({",
             "\turl: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2125,7 +2540,9 @@
         "prefix": "wx-reLaunch",
         "body": ["wx.reLaunch({",
             "\turl: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2136,7 +2553,9 @@
         "prefix": "wx-switchTab",
         "body": ["wx.switchTab({",
             "\turl: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2317,7 +2736,9 @@
     "wx.startPullDownRefresh": {
         "prefix": "wx-startPullDownRefresh",
         "body": ["wx.startPullDownRefresh({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2332,7 +2753,9 @@
     "wx.getExtConfig": {
         "prefix": "wx-getExtConfig",
         "body": ["wx.getExtConfig({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2348,7 +2771,9 @@
         "prefix": "wx-login",
         "body": ["wx.login({",
             "\ttimeout:${1:10000},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2359,7 +2784,9 @@
         "prefix": "wx-checkSession",
         "body": [
             "wx.checkSession({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2371,7 +2798,9 @@
         "body": [
             "wx.authorize({",
             "\tscope: '${1}',",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2385,7 +2814,9 @@
             "\twithCredentials: '${1:false}',",
             "\tlang: '${2:zh_CN}',",
             "\ttimeout:${3:10000},",
-            "\tsuccess: (result)=>{${4}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${4}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2401,7 +2832,9 @@
             "\tpackage: '${3}',",
             "\tsignType: '${4}',",
             "\tpaySign: '${5}',",
-            "\tsuccess: (result)=>{${6}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${6}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2413,7 +2846,9 @@
         "body": [
             "wx.showShareMenu({",
             "\twithShareTicket: ${1:false}",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2423,7 +2858,9 @@
     "wx.hideShareMenu": {
         "prefix": "wx-hideShareMenu",
         "body": ["wx.hideShareMenu({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2435,7 +2872,9 @@
         "body": [
             "wx.updateShareMenu({",
             "\twithShareTicket: ${1:false}",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2448,7 +2887,9 @@
             "wx.getShareInfo({",
             "\tshareTicket: ${1},",
             "\ttimeout:${2:10000},",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2458,7 +2899,9 @@
     "wx.chooseAddress": {
         "prefix": "wx-chooseAddress",
         "body": ["wx.chooseAddress({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2470,7 +2913,9 @@
         "body": [
             "wx.addCard({",
             "\tcardList: [${1}],",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2482,7 +2927,9 @@
         "body": [
             "wx.openCard({",
             "\tcardList: [${1}],",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2492,7 +2939,9 @@
     "wx.openSetting": {
         "prefix": "wx-openSetting",
         "body": ["wx.openSetting({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2502,7 +2951,9 @@
     "wx.getSetting": {
         "prefix": "wx-getSetting",
         "body": ["wx.getSetting({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2513,7 +2964,9 @@
         "prefix": "wx-getWeRunData",
         "body": ["wx.getWeRunData({",
             "\ttimeout:${1:10000},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2527,7 +2980,9 @@
             "\tpath:'${2}',",
             "\textraData:{${3}},",
             "\tenvVersion:'${4:release}',",
-            "\tsuccess: (result)=>{${5}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${5}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2538,7 +2993,9 @@
         "prefix": "wx-navigateBackMiniProgram",
         "body": ["wx.navigateBackMiniProgram({",
             "\textraData:{${1}},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2548,7 +3005,9 @@
     "wx.chooseInvoiceTitle": {
         "prefix": "wx-chooseInvoiceTitle",
         "body": ["wx.chooseInvoiceTitle({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2558,7 +3017,9 @@
     "wx.checkIsSupportSoterAuthentication": {
         "prefix": "wx-checkIsSupportSoterAuthentication",
         "body": ["wx.checkIsSupportSoterAuthentication({",
-            "\tsuccess: (result)=>{${1}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2571,7 +3032,9 @@
             "\trequestAuthModes:['fingerPrint'],",
             "\tchallenge:'${1}',",
             "\tauthContent:'${2}',",
-            "\tsuccess: (result)=>{${3}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${3}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2582,7 +3045,9 @@
         "prefix": "wx-checkIsSoterEnrolledInDevice",
         "body": ["wx.checkIsSoterEnrolledInDevice({",
             "\tcheckAuthMode:{${1}},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2643,7 +3108,9 @@
         "prefix": "wx-setEnableDebug",
         "body": ["wx.setEnableDebug({",
             "\tenableDebug:{${1:true}},",
-            "\tsuccess: (result)=>{${2}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${2}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
@@ -2688,7 +3155,9 @@
             "\tcanvasId: ${7},",
             "\tfileType: ${8:png},",
             "\tquality: ${9:1.0},",
-            "\tsuccess: (result)=>{${10}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${10}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "}, this);"
@@ -2704,7 +3173,9 @@
             "\ty: ${3:0},",
             "\twidth: ${4},",
             "\theight: ${5},",
-            "\tsuccess: (result)=>{${6}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${6}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "}, this);"
@@ -2721,7 +3192,9 @@
             "\ty: ${4},",
             "\twidth: ${5},",
             "\theight: ${6},",
-            "\tsuccess: (result)=>{${7}},",
+            "\tsuccess: (result)=>{",
+            "\t\t${7}",
+            "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "}, this);"
