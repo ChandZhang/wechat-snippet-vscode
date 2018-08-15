@@ -3506,5 +3506,391 @@
             "cvsCtx.setTransform(${1:scaleX}, ${2:skewX}, ${3:skewY}, ${4:scaleY}, ${5:translateX}, ${6:translateY});"
         ],
         "description": "使用矩阵重新设置（覆盖）当前变换的方法"
+    },
+
+    "wx.getFileSystemManager": {
+        "prefix": "wx-getFileSystemManager",
+        "body": [
+            "${1:var fileManager = }wx.getFileSystemManager();"
+        ],
+        "description": "获取全局唯一的文件管理器。"
+    },
+    "fileManager.appendFile": {
+        "prefix": "fileManager-appendFile",
+        "body": [
+            "fileManager.appendFile({",
+                "\tfilePath: '${1}',",
+                "\tdata: '${2}',",
+                "\tencoding:'${3:utf8}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${4}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "在文件结尾追加内容"
+    },
+    "fileManager.appendFileSync": {
+        "prefix": "fileManager-appendFileSync",
+        "body": [
+            "try{",
+            "\tfileManager.appendFileSync('${1}','${2}','${3:utf8}');",
+            "}catch(e){",
+            "\t${4}",
+            "}"
+        ],
+        "description": "在文件结尾追加内容,同步接口"
+    },
+    "fileManager.access": {
+        "prefix": "fileManager-access",
+        "body": [
+            "fileManager.access({",
+                "\tpath: '${1}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${2}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "判断文件/目录是否存在"
+    },
+    "fileManager.accessSync": {
+        "prefix": "fileManager-accessSync",
+        "body": [
+            "try{",
+            "\tfileManager.accessSync('${1}');",
+            "}catch(e){",
+            "\t${2}",
+            "}"
+        ],
+        "description": "判断文件/目录是否存在,同步接口"
+    },
+    "fileManager.copyFile": {
+        "prefix": "fileManager-copyFile",
+        "body": [
+            "fileManager.copyFile({",
+                "\tsrcPath: '${1}',",
+                "\tdestPath: '${2}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${3}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "复制文件"
+    },
+    "fileManager.copyFileSync": {
+        "prefix": "fileManager-copyFileSync",
+        "body": [
+            "try{",
+            "\tfileManager.copyFileSync('${1}','${2}');",
+            "}catch(e){",
+            "\t${3}",
+            "}"
+        ],
+        "description": "复制文件,同步接口"
+    },
+    "fileManager.getSavedFileList": {
+        "prefix": "fileManager-getSavedFileList",
+        "body": [
+            "fileManager.getSavedFileList({",
+                "\tsuccess: (result)=>{",
+                "\t\t${1}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "获取该小程序下已保存的本地缓存文件列表"
+    },
+    "fileManager.getFileInfo": {
+        "prefix": "fileManager-getFileInfo",
+        "body": [
+            "fileManager.getFileInfo({",
+                "\tfilePath: '${1}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${2}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "获取该小程序下的 本地临时文件 或 本地缓存文件 信息"
+    },
+    "fileManager.mkdir": {
+        "prefix": "fileManager-mkdir",
+        "body": [
+            "fileManager.mkdir({",
+                "\tdirPath: '${1}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${2}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "创建目录"
+    },
+    "fileManager.mkdirSync": {
+        "prefix": "fileManager-mkdirSync",
+        "body": [
+            "try{",
+            "\tfileManager.mkdirSync('${1}');",
+            "}catch(e){",
+            "\t${2}",
+            "}"
+        ],
+        "description": "创建目录,同步接口"
+    },
+    "fileManager.removeSavedFile": {
+        "prefix": "fileManager-removeSavedFile",
+        "body": [
+            "fileManager.removeSavedFile({",
+                "\tfilePath: '${1}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${2}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "删除该小程序下已保存的本地缓存文件"
+    },
+    "fileManager.readFile": {
+        "prefix": "fileManager-readFile",
+        "body": [
+            "fileManager.readFile({",
+                "\tfilePath: '${1}',",
+                "\tencoding: '${2}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${3}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "读取本地文件内容"
+    },
+    "fileManager.readFileSync": {
+        "prefix": "fileManager-readFileSync",
+        "body": [
+            "try{",
+            "\tvar ${1:fileData} = fileManager.readFileSync('${2}','${3}');",
+            "}catch(e){",
+            "\t${4}",
+            "}"
+        ],
+        "description": "读取本地文件内容,同步接口"
+    },
+    "fileManager.readdir": {
+        "prefix": "fileManager-readdir",
+        "body": [
+            "fileManager.readdir({",
+                "\tdirPath: '${1}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${2}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "读取目录内文件列表"
+    },
+    "fileManager.readdirSync": {
+        "prefix": "fileManager-readdirSync",
+        "body": [
+            "try{",
+            "\tvar ${1:fileList} = fileManager.readdirSync('${2}');",
+            "}catch(e){",
+            "\t${3}",
+            "}"
+        ],
+        "description": "读取目录内文件列表,同步接口"
+    },
+    "fileManager.rename": {
+        "prefix": "fileManager-rename",
+        "body": [
+            "fileManager.rename({",
+                "\toldPath: '${1}',",
+                "\tnewPath: '${2}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${3}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "重命名文件，可以把文件从 oldPath 移动到 newPath"
+    },
+    "fileManager.renameSync": {
+        "prefix": "fileManager-renameSync",
+        "body": [
+            "try{",
+            "\tfileManager.renameSync('${1}','${2}');",
+            "}catch(e){",
+            "\t${3}",
+            "}"
+        ],
+        "description": "重命名文件，可以把文件从 oldPath 移动到 newPath,同步接口"
+    },
+    "fileManager.rmdir": {
+        "prefix": "fileManager-rmdir",
+        "body": [
+            "fileManager.rmdir({",
+                "\tdirPath: '${1}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${2}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "删除目录"
+    },
+    "fileManager.rmdirSync": {
+        "prefix": "fileManager-rmdirSync",
+        "body": [
+            "try{",
+            "\tfileManager.rmdirSync('${1}');",
+            "}catch(e){",
+            "\t${2}",
+            "}"
+        ],
+        "description": "删除目录,同步接口"
+    },
+    "fileManager.saveFile": {
+        "prefix": "fileManager-saveFile",
+        "body": [
+            "fileManager.saveFile({",
+                "\ttempFilePath: '${1}',",
+                "\tfilePath: '${2}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${3}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "保存临时文件到本地。此接口会移动临时文件，因此调用成功后，tempFilePath 将不可用"
+    },
+    "fileManager.saveFileSync": {
+        "prefix": "fileManager-saveFileSync",
+        "body": [
+            "try{",
+            "\tvar ${1:fileNumber} = fileManager.saveFileSync('${2}','${3}');",
+            "}catch(e){",
+            "\t${4}",
+            "}"
+        ],
+        "description": "保存临时文件到本地。此接口会移动临时文件，因此调用成功后，tempFilePath 将不可用,同步接口"
+    },
+    "fileManager.stat": {
+        "prefix": "fileManager-stat",
+        "body": [
+            "fileManager.stat({",
+                "\tpath: '${1}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${2}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "获取文件 Stats 对象"
+    },
+    "fileManager.statSync": {
+        "prefix": "fileManager-statSync",
+        "body": [
+            "try{",
+            "\tvar ${1:fileStat} = fileManager.statSync('${2}');",
+            "}catch(e){",
+            "\t${3}",
+            "}"
+        ],
+        "description": "获取文件 Stats 对象,同步接口"
+    },
+    "fileStat.isDirectory": {
+        "prefix": "fileStat-isDirectory",
+        "body": [
+            "fileStat.isDirectory();"
+        ],
+        "description": "判断当前文件是否一个目录"
+    },
+    "fileStat.isFile": {
+        "prefix": "fileStat-isFile",
+        "body": [
+            "fileStat.isFile();"
+        ],
+        "description": "判断当前文件是否一个普通文件"
+    },
+    "fileManager.unlink": {
+        "prefix": "fileManager-unlink",
+        "body": [
+            "fileManager.unlink({",
+                "\tfilePath: '${1}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${2}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "删除文件"
+    },
+    "fileManager.unlinkSync": {
+        "prefix": "fileManager-unlinkSync",
+        "body": [
+            "try{",
+            "\tfileManager.unlinkSync('${1}');",
+            "}catch(e){",
+            "\t${2}",
+            "}"
+        ],
+        "description": "删除文件,同步接口"
+    },
+    "fileManager.unzip": {
+        "prefix": "fileManager-unzip",
+        "body": [
+            "fileManager.unzip({",
+                "\tzipFilePath: '${1}',",
+                "\ttargetPath: '${2}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${3}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "解压文件"
+    },
+    "fileManager.writeFile": {
+        "prefix": "fileManager-writeFile",
+        "body": [
+            "fileManager.writeFile({",
+                "\tfilePath: '${1}',",
+                "\tdata: '${2}',",
+                "\tencoding: '${3:utf8}',",
+                "\tsuccess: (result)=>{",
+                "\t\t${4}",
+                "\t},",
+                "\tfail: ()=>{},",
+                "\tcomplete: ()=>{}",
+                "});"
+        ],
+        "description": "写文件"
+    },
+    "fileManager.writeFileSync": {
+        "prefix": "fileManager-writeFileSync",
+        "body": [
+            "try{",
+            "\tfileManager.writeFileSync('${1}','${2}','${3:utf8}');",
+            "}catch(e){",
+            "\t${4}",
+            "}"
+        ],
+        "description": "写文件,同步接口"
     }
 }
