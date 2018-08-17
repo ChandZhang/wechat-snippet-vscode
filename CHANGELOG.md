@@ -1,3 +1,6 @@
+### 0.4.5 2018.08
+* FixBug: App,Page Component对象的生命周期函数不能用ES6写法
+
 ### 0.4.1 2018.08
 * 增加了FileSystemManager API
 
