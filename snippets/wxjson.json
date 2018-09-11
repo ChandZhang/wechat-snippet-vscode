@@ -94,20 +94,36 @@
         "body": [
             "\"functionalPages\":false,"
         ],
-		"description": "App对应的JSON文件debug配置项,是否启用插件功能页"
+		"description": "是否启用插件功能页"
     },
     "app-subPackages": {
         "prefix": "subPackages",
         "body": [
             "\"subPackages\":[],"
         ],
-		"description": "App对应的JSON文件debug配置项,分包结构配置"
+		"description": "App对应的JSON文件subPackages配置项,分包结构配置"
     },
     "app-workers": {
         "prefix": "workers",
         "body": [
             "\"workers\":\"\","
         ],
-		"description": "App对应的JSON文件debug配置项,Worker代码放置的目录"
-    }	
+		"description": "Worker代码放置的目录"
+    },
+	"app-requiredBackgroundModes": {
+        "prefix": "requiredBackgroundModes",
+        "body": [
+            "\"requiredBackgroundModes\":[\"audio\"],"
+        ],
+		"description": "需要在后台使用的能力，如“音乐播放”"
+    },
+	"app-plugins": {
+        "prefix": "plugins",
+        "body": [
+            "\"plugins\":{},"
+        ],
+		"description": "使用到的插件"
+    }
+	
+	
 }
