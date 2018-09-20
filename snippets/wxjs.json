@@ -2322,6 +2322,24 @@
         ],
         "description": "显示操作菜单"
     },
+	"wx.onWindowResize": {
+        "prefix": "wx-onWindowResize",
+        "body": [
+            "wx.onWindowResize((result)=>{",
+            "\t\t${1}",
+            "\t});"
+        ],
+        "description": "监听窗口尺寸变化事件"
+    },
+	"wx.offWindowResize": {
+        "prefix": "wx-offWindowResize",
+        "body": [
+            "wx.offWindowResize((result)=>{",
+            "\t\t${1}",
+            "\t});"
+        ],
+        "description": "取消监听窗口尺寸变化事件"
+    },
     "wx.setTopBarText": {
         "prefix": "wx-setTopBarText",
         "body": ["wx.setTopBarText({",
@@ -2823,6 +2841,23 @@
         ],
         "description": "当用户未授权过，调用该接口将直接报错；当用户授权过，可以使用该接口获取用户信息"
     },
+	"wx.faceVerifyForPay": {
+        "prefix": "wx-faceVerifyForPay",
+        "body": [
+            "wx.faceVerifyForPay({",
+            "\tscene: '${1}',",
+            "\tpackage: '${2}',",
+            "\tpackageSign: '${3}',",
+            "\totherVerifyTitle: '${4}',",
+            "\tsuccess: (result)=>{",
+            "\t\t${5}",
+            "\t},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "支付各个安全场景验证人脸。"
+    },
     "wx.requestPayment": {
         "prefix": "wx-requestPayment",
         "body": [
@@ -2895,6 +2930,13 @@
             "});"
         ],
         "description": "获取转发详细信息"
+    },
+	"wx.getAccountInfoSync": {
+        "prefix": "wx-getAccountInfoSync",
+        "body": [
+            "${1:let accInfo = }wx.getAccountInfoSync();"
+        ],
+        "description": "获取当前账号信息"
     },
     "wx.chooseAddress": {
         "prefix": "wx-chooseAddress",

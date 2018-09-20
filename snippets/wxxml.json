@@ -256,6 +256,15 @@
         ],
         "description": "页面链接"
     },
+	"functional-page-navigator": {
+        "prefix": "functional-page-navigator",
+        "body": [
+            "<functional-page-navigator name=\"${1:loginAndGetUserInfo|requestPayment}\" version=\"${2:release}\" bindsuccess=\"${3}\" bindfail=\"${4}\">",
+            "\t${5}",
+            "</functional-page-navigator>"
+        ],
+        "description": "页面链接"
+    },
     "audio": {
         "prefix": "audio",
         "body": [
