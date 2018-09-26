@@ -111,15 +111,15 @@
     "wx.request": {
         "prefix": "wx-request",
         "body": [
-            "wx.request({",
-            "\turl: '${1}',",
-            "\tdata: {${2}},",
-            "\theader: {${3:'content-type':'application/json'}},",
-            "\tmethod: '${4:GET}',",
-            "\tdataType: '${5:json}',",
-            "\tresponseType: '${6:text}',",
+            "${1:var reqTask = }wx.request({",
+            "\turl: '${2}',",
+            "\tdata: {${3}},",
+            "\theader: {${4:'content-type':'application/json'}},",
+            "\tmethod: '${5:GET}',",
+            "\tdataType: '${6:json}',",
+            "\tresponseType: '${7:text}',",
             "\tsuccess: (result)=>{",
-            "\t\t${7}",
+            "\t\t${8}",
             "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
@@ -127,16 +127,24 @@
         ],
         "description": "发起网络请求"
     },
+	"reqTask.abort": {
+        "prefix": "reqTask-abort",
+        "body": [
+            "reqTask.abort();"
+        ],
+        "description": "中断请求任务。"
+    },
+	
     "wx.uploadFile": {
         "prefix": "wx-uploadFile",
         "body": [
-            "wx.uploadFile({",
-            "\turl: '${1}',",
-            "\tfilePath: ${2},",
-            "\tname: ${3},",
-            "\tformData: {${4}},",
+            "${1:var upTask = }wx.uploadFile({",
+            "\turl: '${2}',",
+            "\tfilePath: ${3},",
+            "\tname: ${4},",
+            "\tformData: {${5}},",
             "\tsuccess: (result)=>{",
-            "\t\t${5}",
+            "\t\t${6}",
             "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
@@ -144,19 +152,51 @@
         ],
         "description": "将本地资源上传到开发者服务器，客户端发起一个 HTTPS POST 请求，其中 content-type 为 multipart/form-data。"
     },
+	"upTask.onProgressUpdate": {
+        "prefix": "upTask-onProgressUpdate",
+        "body": [
+            "upTask.onProgressUpdate((result)=>{",
+            "\t\t${1}",
+            "\t});"
+        ],
+        "description": "监听上传进度变化事件。"
+    },
+	"upTask.abort": {
+        "prefix": "upTask-abort",
+        "body": [
+            "upTask.abort();"
+        ],
+        "description": "中断上传任务。"
+    },
     "wx.downloadFile": {
         "prefix": "wx-downloadFile",
         "body": [
-            "wx.downloadFile({",
-            "\turl: '${1}',",
+            "${1:var downTask = }wx.downloadFile({",
+            "\turl: '${2}',",
             "\tsuccess: (result)=>{",
-            "\t\t${2}",
+            "\t\t${3}",
             "\t},",
             "\tfail: ()=>{},",
             "\tcomplete: ()=>{}",
             "});"
         ],
         "description": "下载文件资源到本地，客户端直接发起一个HTTP GET请求，返回文件的本地临时路径。"
+    },
+	"downTask.onProgressUpdate": {
+        "prefix": "downTask-onProgressUpdate",
+        "body": [
+            "downTask.onProgressUpdate((result)=>{",
+            "\t\t${1}",
+            "\t});"
+        ],
+        "description": "监听下载进度变化事件。"
+    },
+	"downTask.abort": {
+        "prefix": "downTask-abort",
+        "body": [
+            "downTask.abort();"
+        ],
+        "description": "中断下载任务。"
     },
     "wx.connectSocket": {
         "prefix": "wx-connectSocket",
