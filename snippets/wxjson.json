@@ -123,7 +123,19 @@
             "\"plugins\":{},"
         ],
 		"description": "使用到的插件"
-    }
-	
-	
+    },
+	"app-preloadRule": {
+        "prefix": "preloadRule",
+        "body": [
+            "\"preloadRule\":{},"
+        ],
+		"description": "分包预下载规则"
+    },
+	"app-resizable": {
+        "prefix": "resizable",
+        "body": [
+            "\"resizable\":false,"
+        ],
+		"description": "iPad 小程序是否支持屏幕旋转，默认关闭"
+    }	
 }

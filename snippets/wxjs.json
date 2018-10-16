@@ -3084,6 +3084,18 @@
         ],
         "description": "返回到上一个小程序，只有在当前小程序是被其他小程序打开时可以调用成功"
     },
+	"wx.chooseInvoice": {
+        "prefix": "wx-chooseInvoice",
+        "body": ["wx.chooseInvoice({",
+            "\tsuccess: (result)=>{",
+            "\t\t${1}",
+            "\t},",
+            "\tfail: ()=>{},",
+            "\tcomplete: ()=>{}",
+            "});"
+        ],
+        "description": "选择用户已有的发票"
+    },
     "wx.chooseInvoiceTitle": {
         "prefix": "wx-chooseInvoiceTitle",
         "body": ["wx.chooseInvoiceTitle({",
@@ -3974,5 +3986,103 @@
             "}"
         ],
         "description": "写文件,同步接口"
+    },
+	
+	"wx.nextTick": {
+        "prefix": "wx-nextTick",
+        "body": [
+            "wx.nextTick(()=>{",
+			"\t${1}",
+			"});"
+        ],
+        "description": "用于延迟一部分操作到下一个时间片再执行"
+    },
+	"wx.getMenuButtonBoundingClientRect": {
+        "prefix": "wx-getMenuButtonBoundingClientRect",
+        "body": [
+            "let ${1:menuButton} = wx.getMenuButtonBoundingClientRect();"
+        ],
+        "description": "获取菜单按钮的布局置信息"
+    },
+	"wx.createIntersectionObserver": {
+        "prefix": "wx-createIntersectionObserver",
+        "body": [
+            "let ${1:interObser} = wx.createIntersectionObserver(${2:this},${3});"
+        ],
+        "description": "创建并返回一个 IntersectionObserver 对象实例"
+    },
+	"interObser.relativeTo": {
+        "prefix": "interObser-relativeTo",
+        "body": [
+            "interObser.relativeTo(${1:selector},${2});"
+        ],
+        "description": "使用选择器指定一个节点，作为参照区域之一"
+    },
+	"interObser.relativeToViewport": {
+        "prefix": "interObser-relativeToViewport",
+        "body": [
+            "interObser.relativeToViewport(${1});"
+        ],
+        "description": "指定页面显示区域作为参照区域之一"
+    },
+	"interObser.observe": {
+        "prefix": "interObser-observe",
+        "body": [
+            "interObser.observe(${1:selector},(result)=>{",
+			"\t${2}",
+			"});"
+        ],
+        "description": "指定目标节点并开始监听相交状态变化情况"
+    },
+	"interObser.disconnect": {
+        "prefix": "interObser-disconnect",
+        "body": [
+            "interObser.disconnect();"
+        ],
+        "description": "停止监听。回调函数将不再触发"
+    },
+	"wx.createSelectorQuery": {
+        "prefix": "wx-createSelectorQuery",
+        "body": [
+            "let ${1:selQuery} = wx.createSelectorQuery();"
+        ],
+        "description": "返回一个 SelectorQuery 对象实例。"
+    },
+	"selQuery.in": {
+        "prefix": "selQuery-in",
+        "body": [
+            "selQuery.in(${1:this});"
+        ],
+        "description": "将选择器的选取范围更改为自定义组件 component 内（初始时，选择器仅选取页面范围的节点，不会选取任何自定义组件中的节点）。"
+    },
+	"selQuery.select": {
+        "prefix": "selQuery-select",
+        "body": [
+            "selQuery.select(${2:selector});"
+        ],
+        "description": "在当前页面下选择第一个匹配选择器 selector 的节点，返回一个 NodesRef 对象实例，可以用于获取节点信息"
+    },
+	"selQuery.selectAll": {
+        "prefix": "selQuery-selectAll",
+        "body": [
+            "selQuery.selectAll();"
+        ],
+        "description": "在当前页面下选择匹配选择器 selector 的所有节点。"
+    },
+	"selQuery.selectViewport": {
+        "prefix": "selQuery-selectViewport",
+        "body": [
+            "selQuery.selectViewport();"
+        ],
+        "description": "选择显示区域，可用于获取显示区域的尺寸、滚动位置等信息。"
+    },
+	"selQuery.exec": {
+        "prefix": "selQuery-exec",
+        "body": [
+            "selQuery.exec(result)=>{",
+			"\t${1}",
+			"});"
+        ],
+        "description": "执行所有的请求，请求结果按请求次序构成数组，在callback的第一个参数中返回。"
     }
 }

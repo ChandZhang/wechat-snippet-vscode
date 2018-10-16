@@ -1,7 +1,7 @@
 {
 	"name": "wechat-snippet",
 	"description": "微信小程序代码辅助,代码片段自动完成",
-	"version": "0.4.9",
+	"version": "0.4.10",
 	"publisher": "ChandZhang",
 	"engines": {
 		"vscode": "^1.20.0"
