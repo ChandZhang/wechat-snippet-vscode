@@ -1400,7 +1400,7 @@
     "wx.removeStorage": {
         "prefix": "wx-removeStorage",
         "body": ["wx.removeStorage({",
-            "\tkey: '${1:key},'",
+            "\tkey: '${1:key}',",
             "\tsuccess: (result)=>{",
             "\t\t${2}",
             "\t},",
